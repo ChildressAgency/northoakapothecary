@@ -34,11 +34,17 @@ h6
     border-radius: 0
     padding: 5px 15px
 
+    &:hover
+        box-shadow: 6px 6px 10px rgba(0, 0, 0, .4)
+
 .btn-primary
     +font-size(16)
     background-color: $color-btn-primary
     color: $color-white
     font-style: italic
+
+    &:hover
+        background-color: $color-btn-primary
 
 .script
     @extend %font-silver-south-script
@@ -186,13 +192,12 @@ h6
 
             &[type='submit']
                 background-color: $color-btn-primary
-                flex: 1
+                cursor: pointer
                 font-weight: bold
                 padding: 10px 30px
                 width: auto
 
         p
-            flex-wrap: wrap
             margin-bottom: 0
             width: 100%
 

@@ -15,14 +15,12 @@
         <div class="footer">
             <div class="footer__logo"><img src="wp-content/uploads/2018/10/logo-alt.png" /></div>
             <div class="footer__info">
-                <!-- <nav class="navbar navbar-expand-md"> -->
-                    <?php 
-                    wp_nav_menu( array(
-                        'theme_location'    =>  'footer_menu',
-                        'menu_class'        =>  'navbar-nav footer__nav',
-                        'walker'            =>  new Custom_Nav_Walker()
-                    ) ); ?>
-                <!-- </nav> -->
+                <?php 
+                wp_nav_menu( array(
+                    'theme_location'    =>  'footer_menu',
+                    'menu_class'        =>  'navbar-nav footer__nav',
+                    'walker'            =>  new Custom_Nav_Walker()
+                ) ); ?>
                 <div class="footer__contact">
                     <div class="footer__social">
                         <?php if( get_field( 'twitter', 'option' ) ): ?><a href="<?php the_field( 'twitter', 'option' ); ?>"><i class="fab fa-twitter-square"></i></a><?php endif; ?>
