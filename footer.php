@@ -12,16 +12,12 @@
             </div>
             <div class="footer-box">
                 <div class="footer-box__heading">
-                    <h2>Join Our Newsletter</h2>
+                    <h2><span class="script">Join</span> our newsletter</h2>
                 </div>
                 <div class="footer-box__text">
                     <p>Don’t miss out on our latest news, products & specials.</p>
                     <p class="footer-box__subtext"><em>New signups will receive 10% off their next order...</em></p>
                     <?php echo do_shortcode( '[contact-form-7 id="63" title="Newsletter Signup"]' ); ?>
-                    <!-- <form action="">
-                        <input type="email" placeholder="Email Address" />
-                        <input type="submit" value="Submit" />
-                    </form> -->
                 </div>
             </div>
         </div>

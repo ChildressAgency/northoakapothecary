@@ -14,7 +14,16 @@ html
 body
     box-sizing: border-box;
     color: $color-black
+    font-family: 'Open Sans'
     font-size: 1.6rem;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+    @extend %font-chronicle-display-light
 
 ///////////////////////////////////////////////////////////////////////////////
 // REUSABLE                                                                  //
@@ -30,6 +39,10 @@ body
     background-color: $color-btn-primary
     color: $color-white
     font-style: italic
+
+.script
+    @extend %font-silver-south-script
+    font-size: 1.56em
 
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER                                                                    //
@@ -81,6 +94,7 @@ body
         width: 75%
 
     .nav-link
+        @extend %font-chronicle-display-light
         color: $color-black
 
     p

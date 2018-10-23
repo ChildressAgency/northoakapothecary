@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Silver South Script";
+  src: url("fonts/SilverSouth/Silver-South-Script.otf");
+}
+@font-face {
+  font-family: "Silver South Serif";
+  src: url("fonts/SilverSouth/Silver-South-Serif.otf");
+}
+.script {
+  font-family: "Silver South Script", script;
+}
+
+.header .nav-link, h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Chronicle Display Light", "Silver South Serif", script;
+}
+
 *,
 *::before,
 *::after {
@@ -13,6 +34,7 @@ html {
 body {
   box-sizing: border-box;
   color: #000;
+  font-family: "Open Sans";
   font-size: 1.6rem;
 }
 
@@ -28,6 +50,10 @@ body {
   background-color: #ffb614;
   color: #fff;
   font-style: italic;
+}
+
+.script {
+  font-size: 1.56em;
 }
 
 .masthead {
