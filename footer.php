@@ -1,25 +1,15 @@
     <footer>
         <div class="footer-boxes">
-            <div class="footer-box">
-                <div class="footer-box__heading">
-                    <h2>Are you interested in collaborating with us for wholesale?</h2>
+            <?php if( have_rows( 'footer_boxes', 'option' ) ): while( have_rows( 'footer_boxes', 'option' ) ): the_row(); ?>
+                <div class="footer-box">
+                    <div class="footer-box__heading">
+                        <h2><?php the_sub_field( 'heading' ); ?></h2>
+                    </div>
+                    <div class="footer-box__text">
+                        <?php the_sub_field( 'text' ); ?>
+                    </div>
                 </div>
-                <div class="footer-box__text">
-                    <p>We love connecting with new businesses that share our passion for quality, sustainable products using organic ingredients.</p>
-                    <p>Contact us to learn more about how you can provide your clientele with our products.</p>
-                    <a href="#" class="btn btn-primary">Contact Us</a>
-                </div>
-            </div>
-            <div class="footer-box">
-                <div class="footer-box__heading">
-                    <h2><span class="script">Join</span> our newsletter</h2>
-                </div>
-                <div class="footer-box__text">
-                    <p>Don’t miss out on our latest news, products & specials.</p>
-                    <p><span class="subtext"><em>New signups will receive 10% off their next order...</em></span></p>
-                    <?php echo do_shortcode( '[contact-form-7 id="63" title="Newsletter Signup"]' ); ?>
-                </div>
-            </div>
+            <?php endwhile; endif; ?>
         </div>
 
         <div class="footer">
