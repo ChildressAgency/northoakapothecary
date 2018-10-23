@@ -23,6 +23,10 @@ h6 {
   font-family: "Chronicle Display Light", "Silver South Serif", serif;
 }
 
+.bigtext {
+  font-family: "Chronicle Display Semi", "Silver South Serif", serif;
+}
+
 .carousel__heading {
   font-family: "Calma Display SemiBold", sans-serif;
 }
@@ -46,6 +50,31 @@ body {
   font-size: 1.6rem;
 }
 
+h2 {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+
+h4 {
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+
+h6 {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
 p {
   margin-bottom: 15px;
 }
@@ -53,6 +82,33 @@ p {
 div {
   background-position: center center;
   background-size: cover;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 15px;
+}
+
+.alignright {
+  float: right;
+  margin-left: 15px;
+}
+
+.alignright,
+.alignleft {
+  margin-bottom: 15px;
+}
+.alignright::after,
+.alignleft::after {
+  clear: both;
+  content: " ";
+  display: table;
 }
 
 .btn {
@@ -94,6 +150,10 @@ div {
 
 .subtext {
   font-size: 0.82em;
+}
+
+.bigtext {
+  font-size: 2em;
 }
 
 .overlay {

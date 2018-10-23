@@ -25,6 +25,21 @@ h5,
 h6
     @extend %font-chronicle-display-light
 
+h2
+    +font-size(24)
+
+h3
+    +font-size(22)
+
+h4
+    +font-size(20)
+
+h5
+    +font-size(18)
+
+h6
+    +font-size(16)
+
 p
     margin-bottom: 15px
 
@@ -35,6 +50,28 @@ div
 ///////////////////////////////////////////////////////////////////////////////
 // REUSABLE                                                                  //
 ///////////////////////////////////////////////////////////////////////////////
+
+.aligncenter
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+.alignleft
+    float: left
+    margin-right: 15px
+
+.alignright
+    float: right
+    margin-left: 15px
+
+.alignright,
+.alignleft
+    margin-bottom: 15px
+
+    &::after
+        clear: both
+        content: ' '
+        display: table
 
 .btn
     border: 0
@@ -74,6 +111,10 @@ div
 
 .subtext
     font-size: .82em
+
+.bigtext
+    @extend %font-chronicle-display-semi
+    font-size: 2em
 
 .overlay
     height: 100%
