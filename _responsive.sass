@@ -1,0 +1,71 @@
+@media screen and (min-width: 576px)
+    .footer
+        &__nav
+            flex-direction: row
+
+@media screen and (min-width: 768px)
+    .masthead
+        flex-direction: row
+        padding: 0 15px
+        text-align: left
+
+        &__newsletter
+            left: 50%
+            padding-left: 5%
+            padding-right: 5%
+            position: absolute
+            transform: translateX(-50%)
+
+    .header
+        .dropdown-item
+            text-align: left
+
+    .footer-boxes
+        flex-direction: row
+
+    .footer
+        flex-direction: row
+
+        &__logo
+            margin-bottom: 0
+
+        &__contact
+            flex-direction: row
+
+            & > a
+                margin-bottom: 0
+
+            span
+                display: initial
+
+        &__social
+            +font-size(18)
+            margin-bottom: 0
+
+            a
+                margin-right: 5px
+
+    .copyright
+        &__nav
+            flex-direction: row
+
+            .nav-item
+                margin-bottom: 0
+
+@media screen and (min-width: 992px)
+    .header
+        &__nav
+            width: 50%
+
+    .footer-box
+        &__heading
+            h2
+                +font-size(32)
+
+        &__text
+            +font-size(22)
+
+        &__subtext
+            +font-size(18)
+
+@media screen and (min-width: 1200px)

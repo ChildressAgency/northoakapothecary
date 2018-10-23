@@ -1,0 +1,258 @@
+@import _variables.sass
+
+
+*,
+*::before,
+*::after
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+
+html
+    font-size: 62.5%;
+
+body
+    box-sizing: border-box;
+    color: $color-black
+    font-size: 1.6rem;
+
+///////////////////////////////////////////////////////////////////////////////
+// REUSABLE                                                                  //
+///////////////////////////////////////////////////////////////////////////////
+
+.btn
+    border: 0
+    border-radius: 0
+    padding: 5px 15px
+
+.btn-primary
+    +font-size(16)
+    background-color: $color-btn-primary
+    color: $color-white
+    font-style: italic
+
+///////////////////////////////////////////////////////////////////////////////
+// HEADER                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.masthead
+    +font-size(12)
+    background-color: $color-primary
+    color: $color-text-light
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    text-align: center
+
+    a
+        color: $color-text-light
+
+    &__contact,
+    &__newsletter,
+    &__shop
+        padding-bottom: 5px
+        padding-top: 5px
+
+    &__newsletter
+        background-color: $color-primary-light
+
+    &__shop
+        & > a
+            margin-left: 10px
+
+            &:first-of-type
+                margin-left: 0
+
+.header
+    align-items: center
+    display: flex
+    flex-direction: column
+    padding: 30px
+
+    &__nav
+        +font-size(16)
+        border-bottom: 1px solid $color-black
+        border-top: 1px solid $color-black
+        display: flex
+        justify-content: space-between
+        margin: 0 auto
+        max-width: 800px
+        text-align: center
+        width: 75%
+
+    .nav-link
+        color: $color-black
+
+    p
+        text-align: center
+
+    .navbar-toggler
+        +font-size(20)
+        margin: 15px auto
+
+    .navbar,
+    .menu-main-menu-container
+        width: 100%
+
+    .dropdown-menu
+        background-color: $color-primary-light
+        padding-bottom: 0
+        padding-top: 0
+
+    .dropdown-item
+        +font-size(16)
+        color: $color-text-light
+        text-align: center
+
+        &:hover
+            background-color: $color-primary
+            color: $color-text-light
+
+    .dropdown-toggle
+        &::after
+            display: none
+
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.footer-boxes
+    color: $color-text-light
+    display: flex
+    flex-direction: column
+
+.footer-box
+    background-color: $color-primary
+    flex: 1
+    padding: 30px
+
+    &:last-of-type
+        background-color: $color-primary-light
+
+    &__heading
+        align-items: center
+        border-bottom: 1px solid $color-secondary
+        display: flex
+        justify-content: center
+        margin-bottom: 15px
+        padding-bottom: 15px
+        text-align: center
+
+        h2
+            +font-size(28)
+
+    &__text
+        +font-size(18)
+        text-align: center
+
+        p
+            margin-bottom: 30px
+
+    &__subtext
+        +font-size(14)
+
+    form
+        .ajax-loader
+            display: block
+            margin: 0 auto
+
+        .wpcf7-form-control-wrap
+            display: inline-block
+            margin-bottom: 10px
+            margin-right: 5px
+            max-width: 100%
+
+        input
+            +font-size(16)
+            border: 0
+            color: $color-primary
+            max-width: 100%
+            padding: 10px 15px
+            width: auto
+
+            &[type='submit']
+                background-color: $color-btn-primary
+                flex: 1
+                font-weight: bold
+                padding: 10px 30px
+                width: auto
+
+        p
+            flex-wrap: wrap
+            margin-bottom: 0
+            width: 100%
+
+.footer
+    align-items: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin: 0 auto
+    padding-bottom: 60px
+    padding-top: 30px
+
+    &__logo
+        margin-bottom: 30px
+
+    &__info
+        display: flex
+        flex-direction: column
+        margin-left: 30px
+
+    &__contact
+        border-bottom: 1px solid $color-secondary
+        border-top: 1px solid $color-secondary
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        margin: 15px 0
+        padding: 10px 0
+
+        & > a
+            margin-bottom: 15px
+
+            &:last-of-type
+                margin-bottom: 0
+
+        span
+            display: none
+
+    &__social
+        +font-size(25)
+        margin-bottom: 15px
+
+        a
+            margin-bottom: 0
+            margin-right: 10px
+
+            &:last-of-type
+                margin-right: 0
+
+    &__nav
+        display: flex
+        justify-content: space-between
+
+    .navbar
+        padding: 0
+
+    a
+        color: $color-black
+
+    span
+        margin-left: 10px
+        margin-right: 10px
+
+.copyright
+    &__nav
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        .nav-item
+            line-height: .5rem
+            margin-bottom: 15px
+
+.menu-footer-menu-container
+    width: 100%
+
+@import _responsive.sass
