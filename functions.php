@@ -56,11 +56,12 @@
 	  ));
 	}
 
-	// load font awesome
-	function load_font_awesome(){
-		wp_enqueue_style('font-awesome', '//use.fontawesome.com/releases/v5.3.1/css/all.css');
+	// load fonts
+	function load_fonts() {
+		wp_enqueue_style( 'open-sans-condensed', 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700', false );
+		wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.3.1/css/all.css' );
 	}
-	add_action('wp_enqueue_scripts','load_font_awesome');
+	add_action( 'wp_enqueue_scripts', 'load_fonts' );
 
 	// Register Navigation Menus
 	register_nav_menus( array(

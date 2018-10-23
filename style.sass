@@ -25,6 +25,13 @@ h5,
 h6
     @extend %font-chronicle-display-light
 
+p
+    margin-bottom: 15px
+
+div
+    background-position: center center
+    background-size: cover
+
 ///////////////////////////////////////////////////////////////////////////////
 // REUSABLE                                                                  //
 ///////////////////////////////////////////////////////////////////////////////
@@ -33,9 +40,16 @@ h6
     border: 0
     border-radius: 0
     padding: 5px 15px
+    transition: box-shadow .1s linear, background-color .1s linear
 
     &:hover
-        box-shadow: 6px 6px 10px rgba(0, 0, 0, .4)
+        box-shadow: 6px 6px 10px $color-shadow
+
+    &:active
+        border: 0
+
+    &:focus
+        box-shadow: none
 
 .btn-primary
     +font-size(16)
@@ -44,7 +58,15 @@ h6
     font-style: italic
 
     &:hover
-        background-color: $color-btn-primary
+        background-color: $color-secondary
+
+    &:active
+        background-color: $color-secondary
+
+    &:not(:disabled)
+        &:not(.disabled)
+            &:active
+                background-color: $color-secondary
 
 .script
     @extend %font-silver-south-script
@@ -52,6 +74,14 @@ h6
 
 .subtext
     font-size: .82em
+
+.dark-overlay
+    background-color: $color-shadow
+    height: 100%
+    left: 0
+    position: absolute
+    top: 0
+    width: 100%
 
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER                                                                    //
@@ -136,6 +166,52 @@ h6
             display: none
 
 ///////////////////////////////////////////////////////////////////////////////
+// FRONT PAGE                                                                //
+///////////////////////////////////////////////////////////////////////////////
+
+.carousel
+    height: 500px
+
+    &__heading
+        @extend %font-calma-display-semibold
+        +font-size(70)
+        border-bottom: 1px solid $color-secondary
+        letter-spacing: .05em
+        margin-bottom: 15px
+        padding-bottom: 15px
+
+    &__text
+        +font-size(16)
+        font-family: 'Open Sans Condensed', 'Open Sans', 'sans-serif'
+        font-weight: bold
+
+.carousel-inner
+    height: 100%
+
+.carousel-item
+    height: 100%
+
+.carousel-caption
+    left: 15px
+    padding: 0
+    right: 15px
+    text-align: left
+    top: 15px
+    width: auto
+
+.carousel-indicators
+    bottom: -30px
+    justify-content: flex-start
+    margin: 0
+    position: relative
+
+    li
+        height: 15px
+        margin-left: 5px
+        margin-right: 5px
+        width: 15px
+
+///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -195,7 +271,11 @@ h6
                 cursor: pointer
                 font-weight: bold
                 padding: 10px 30px
+                transition: box-shadow .3s ease
                 width: auto
+
+                &:hover
+                    box-shadow: 3px 3px 10px $color-shadow
 
         p
             margin-bottom: 0

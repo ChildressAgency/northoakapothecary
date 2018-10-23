@@ -6,8 +6,12 @@
   font-family: "Silver South Serif";
   src: url("fonts/SilverSouth/Silver-South-Serif.otf");
 }
+@font-face {
+  font-family: "Calma Display SemiBold";
+  src: url("fonts/Calma/Calma-Display-SemiBold.otf");
+}
 .script {
-  font-family: "Silver South Script", script;
+  font-family: "Silver South Script", serif;
 }
 
 .header .nav-link, h1,
@@ -16,7 +20,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Chronicle Display Light", "Silver South Serif", script;
+  font-family: "Chronicle Display Light", "Silver South Serif", serif;
+}
+
+.carousel__heading {
+  font-family: "Calma Display SemiBold", sans-serif;
 }
 
 *,
@@ -38,13 +46,29 @@ body {
   font-size: 1.6rem;
 }
 
+p {
+  margin-bottom: 15px;
+}
+
+div {
+  background-position: center center;
+  background-size: cover;
+}
+
 .btn {
   border: 0;
   border-radius: 0;
   padding: 5px 15px;
+  transition: box-shadow 0.1s linear, background-color 0.1s linear;
 }
 .btn:hover {
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
+}
+.btn:active {
+  border: 0;
+}
+.btn:focus {
+  box-shadow: none;
 }
 
 .btn-primary {
@@ -55,7 +79,13 @@ body {
   font-style: italic;
 }
 .btn-primary:hover {
-  background-color: #ffb614;
+  background-color: #d29b22;
+}
+.btn-primary:active {
+  background-color: #d29b22;
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #d29b22;
 }
 
 .script {
@@ -64,6 +94,15 @@ body {
 
 .subtext {
   font-size: 0.82em;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .masthead {
@@ -145,6 +184,54 @@ body {
   display: none;
 }
 
+.carousel {
+  height: 500px;
+}
+.carousel__heading {
+  font-size: 70px;
+  font-size: 7rem;
+  border-bottom: 1px solid #d29b22;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.carousel__text {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: "Open Sans Condensed", "Open Sans", "sans-serif";
+  font-weight: bold;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-caption {
+  left: 15px;
+  padding: 0;
+  right: 15px;
+  text-align: left;
+  top: 15px;
+  width: auto;
+}
+
+.carousel-indicators {
+  bottom: -30px;
+  justify-content: flex-start;
+  margin: 0;
+  position: relative;
+}
+.carousel-indicators li {
+  height: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 15px;
+}
+
 .footer-boxes {
   color: #ece9e4;
   display: flex;
@@ -204,7 +291,11 @@ body {
   cursor: pointer;
   font-weight: bold;
   padding: 10px 30px;
+  transition: box-shadow 0.3s ease;
   width: auto;
+}
+.footer-box form input[type=submit]:hover {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
 .footer-box form p {
   margin-bottom: 0;
@@ -310,6 +401,14 @@ body {
     text-align: left;
   }
 
+  .carousel-caption {
+    left: 5vw;
+    min-width: 650px;
+    right: unset;
+    top: 5vw;
+    width: 45%;
+  }
+
   .footer-boxes {
     flex-direction: row;
   }
@@ -361,6 +460,10 @@ body {
   .footer-box__subtext {
     font-size: 18px;
     font-size: 1.8rem;
+  }
+
+  .carousel-caption {
+    min-width: 800px;
   }
 }
 
