@@ -56,6 +56,10 @@ body {
   font-size: 1.56em;
 }
 
+.subtext {
+  font-size: 0.82em;
+}
+
 .masthead {
   font-size: 12px;
   font-size: 1.2rem;
@@ -169,10 +173,6 @@ body {
 }
 .footer-box__text p {
   margin-bottom: 30px;
-}
-.footer-box__subtext {
-  font-size: 14px;
-  font-size: 1.4rem;
 }
 .footer-box form .ajax-loader {
   display: block;

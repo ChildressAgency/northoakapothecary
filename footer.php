@@ -16,7 +16,7 @@
                 </div>
                 <div class="footer-box__text">
                     <p>Don’t miss out on our latest news, products & specials.</p>
-                    <p class="footer-box__subtext"><em>New signups will receive 10% off their next order...</em></p>
+                    <p><span class="subtext"><em>New signups will receive 10% off their next order...</em></span></p>
                     <?php echo do_shortcode( '[contact-form-7 id="63" title="Newsletter Signup"]' ); ?>
                 </div>
             </div>

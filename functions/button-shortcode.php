@@ -40,10 +40,10 @@ function button_function( $atts, $content = null ) {
  * 'button' is how the shortcode is called
  * e.g. [button]
  */
-function register_shortcodes(){
+function register_button_shortcode(){
    add_shortcode('button', 'button_function');
 }
-add_action( 'init', 'register_shortcodes');
+add_action( 'init', 'register_button_shortcode');
 
 /*
  *Initialize process for registering your custom TinyMCE buttons hook
@@ -69,7 +69,7 @@ function sh_custom_shortcode_button_init_callback() {
  * This callback is process our TinyMCE Editor plug-in.
  */
 function sh_custom_register_tinymce_plugin_callback($plugin_array) {
-    $url = get_template_directory_uri() . '/js/custom_editor.js';
+    $url = get_template_directory_uri() . '/js/custom-button-shortcode.js';
     //set custom js url path
     $plugin_array['noa_custom_button'] = $url;
     //return
