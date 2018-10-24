@@ -8,6 +8,7 @@ $overlay = $overlay['value']
     <div class="section <?php if( get_sub_field( 'inset' ) ) echo 'section--inset'; ?>">
         <?php if( $overlay != 'none' ): ?><div class="overlay overlay--<?php echo $overlay; ?>"></div><?php endif; ?>
         <div class="container">
+            <?php if( get_sub_field( 'section_heading' ) ): ?><h2 class="section__heading"><?php the_sub_field( 'section_heading' ); ?></h2><?php endif; ?>
             <div class="img-boxes">
                 <?php while( have_rows( 'image_boxes' ) ): the_row(); ?>
                     <a class="img-box" href="<?php the_sub_field( 'link' ); ?>">
