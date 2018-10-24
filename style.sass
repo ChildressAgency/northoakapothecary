@@ -4,18 +4,18 @@
 *,
 *::before,
 *::after
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+    box-sizing: inherit
+    margin: 0
+    padding: 0
 
 html
-    font-size: 62.5%;
+    font-size: 62.5%
 
 body
-    box-sizing: border-box;
+    box-sizing: border-box
     color: $color-black
     font-family: 'Open Sans'
-    font-size: 1.6rem;
+    font-size: 1.6rem
 
 h1,
 h2,
@@ -23,7 +23,10 @@ h3,
 h4,
 h5,
 h6
-    @extend %font-chronicle-display-light
+    @extend %font-chronicle-display-semi
+
+h1
+    +font-size(28)
 
 h2
     +font-size(24)
@@ -50,6 +53,13 @@ div
 img
     height: auto
     max-width: 100%
+
+a
+    color: $color-secondary
+
+    &:hover
+        color: $color-secondary
+        text-decoration: underline
 
 ///////////////////////////////////////////////////////////////////////////////
 // REUSABLE                                                                  //
@@ -80,7 +90,7 @@ img
 .btn
     border: 0
     border-radius: 0
-    padding: 5px 15px
+    padding: 5px 30px
     transition: box-shadow .1s linear, background-color .1s linear
 
     &:hover
@@ -99,15 +109,22 @@ img
     font-style: italic
 
     &:hover
-        background-color: $color-secondary
+        background-color: $color-btn-primary
 
     &:active
         background-color: $color-secondary
+        box-shadow: none
 
     &:not(:disabled)
         &:not(.disabled)
             &:active
                 background-color: $color-secondary
+                box-shadow: none
+
+.btn-center
+    left: 50%
+    position: relative
+    transform: translateX(-50%)
 
 .script
     @extend %font-silver-south-script
@@ -141,6 +158,13 @@ img
 
     &--inset
         box-shadow: inset 0 30px 15px -15px $color-shadow, inset 0 -30px 15px -15px $color-shadow
+
+    &__heading
+        border-bottom: 1px solid $color-secondary
+        margin-bottom: 30px
+        padding-bottom: 15px
+        text-align: center
+        width: 100%
 
 .img-boxes
     display: grid
@@ -290,6 +314,49 @@ img
         width: 15px
 
 ///////////////////////////////////////////////////////////////////////////////
+// PRODUCTS                                                                  //
+///////////////////////////////////////////////////////////////////////////////
+
+.featured-products
+    display: grid
+    grid-gap: 60px
+    grid-template-columns: 1fr 1fr 1fr
+    margin-bottom: 30px
+
+    &__image
+        margin-bottom: 15px
+        width: 100%
+
+    &__title
+        +font-size(16)
+        font-family: 'Open Sans', sans-serif
+        font-weight: bold
+        margin-bottom: 0
+
+        a
+            color: $color-black
+
+    &__rating
+        margin-bottom: 0
+
+    &__tag
+        font-weight: normal
+
+    &__price
+        @extend %font-chronicle-display-xlight
+        +font-size(40)
+
+    &__top
+        display: flex
+
+    &__title-review
+        flex: 1
+
+    &__description
+        +font-size(16)
+
+
+///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -316,6 +383,7 @@ img
         text-align: center
 
         h2
+            @extend %font-chronicle-display-light
             +font-size(28)
 
     &__text
