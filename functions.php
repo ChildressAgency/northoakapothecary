@@ -31,18 +31,28 @@
 			'', 
 			true
 		);
+		wp_register_script(
+			'slick-script', 
+			'//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
 
 		wp_enqueue_script( 'bootstrap-script' );
 		wp_enqueue_script( 'northoak-script' );
+		wp_enqueue_script( 'slick-script' );
 	}
 	add_action('wp_enqueue_scripts', 'northoak_scripts', 100);
 	
 	function northoak_styles(){
 	  wp_register_style('bootstrap-css', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
 	  wp_register_style('northoak', get_template_directory_uri() . '/style.css');
+	  wp_register_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	  
 	  wp_enqueue_style('bootstrap-css');
 	  wp_enqueue_style('northoak');
+	  wp_enqueue_style('slick');
 	}
 	add_action('wp_enqueue_scripts', 'northoak_styles');
 

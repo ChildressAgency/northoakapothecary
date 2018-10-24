@@ -1,5 +1,9 @@
 $( document ).ready(function(){
 
+    /**
+     * FOOTER BOXES
+     */
+
     // preload object array to gain performance
     $footerBox_headings = $('.footer-box__heading');
 
@@ -24,4 +28,24 @@ $( document ).ready(function(){
 
     // run at load
     $.fn.setHeadingHeight(0);
+
+
+
+
+    /**
+     * INSTAGRAM FEED
+     */
+    $( '.instagram__feed' ).slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+        variableWidth: true,
+        dots: false,
+        arrows: true,
+        nextArrow: $( '.instagram__next' ),
+        prevArrow: $( '.instagram__prev' )
+    });
+
+    $( '.slick-next.slick-arrow' ).html( '<div class="slick-arrow-next"></div>' );
+    $( '.slick-prev.slick-arrow' ).html( '<div class="slick-arrow-prev"></div>' );
 });

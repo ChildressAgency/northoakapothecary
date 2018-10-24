@@ -355,6 +355,109 @@ a
     &__description
         +font-size(16)
 
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER                                                                    //
+///////////////////////////////////////////////////////////////////////////////
+
+.instagram
+    height: 240px
+    overflow: hidden
+    position: relative
+
+    &__feed
+        height: 100%
+        position: relative
+
+    &__controls
+        box-shadow: -5px 0 5px $color-shadow
+        height: 100%
+        position: absolute
+        right: 0
+        width: 80px
+        z-index: 99
+
+    &__link
+        background-color: $color-primary
+        color: $color-primary-lighter
+        height: 80px
+        position: absolute
+        right: 0
+        top: 0
+        width: 80px
+        z-index: 99
+
+        &:hover
+            color: $color-primary-light
+
+        i
+            +font-size(50)
+            left: 50%
+            position: absolute
+            top: 50%
+            transform: translate(-50%, -50%)
+
+    &__next,
+    &__prev
+        cursor: pointer
+        height: 80px
+        position: absolute
+        right: 0
+        width: 80px
+
+    &__next
+        background-color: $color-primary-light
+        top: 80px
+
+        .instagram__triangle
+            border-left: 30px solid $color-primary-lighter
+
+    &__prev
+        background-color: $color-primary-lighter
+        bottom: 0
+
+        .instagram__triangle
+            border-right: 30px solid $color-primary-light
+
+    &__triangle
+        border-bottom: 20px solid transparent
+        border-top: 20px solid transparent
+        height: 40px
+        left: 50%
+        overflow: hidden
+        position: relative
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: 30px
+
+.slick-arrow
+    border: 0
+    height: 80px
+    position: absolute
+    right: 0
+    width: 80px
+    z-index: 99
+
+.slick-next
+    background-color: $color-primary-light
+    top: 80px
+
+.slick-prev
+    background-color: $color-primary-lighter
+    bottom: 0
+
+.slick-slide
+    img
+        height: 100%
+
+.slick-list
+    height: 100%
+
+.slick-track
+    height: 100%
+
+.slick-initialized
+    .slick-slide
+        height: 100%
 
 ///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
