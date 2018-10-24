@@ -7,16 +7,19 @@ if( have_rows('flexible_content') ):
     while ( have_rows('flexible_content') ) : the_row();
 
         if( get_row_layout() == 'basic' ):
-            get_template_part( 'tp-basic' );
+            get_template_part( 'template-parts/tp-basic' );
 
         elseif( get_row_layout() == 'image_boxes' ):
-            get_template_part( 'tp-img-boxes' );
+            get_template_part( 'template-parts/tp-img-boxes' );
+
+        elseif( get_row_layout() == 'featured_products' ):
+            get_template_part( 'template-parts/tp-featured-products' );
 
         endif;
 
     endwhile;
 
-else :
+else:
 
     // no layouts found
 
