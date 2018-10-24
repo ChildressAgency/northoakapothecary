@@ -6,6 +6,12 @@
     font-family: 'Silver South Serif'
     src: url('fonts/SilverSouth/Silver-South-Serif.otf')
 
+@font-face
+    font-family: 'Calma Display SemiBold'
+    src: url('fonts/Calma/Calma-Display-SemiBold.otf')
+
+
+// COLORS
 $color-primary: #4a494e
 $color-primary-light: #626c75
 $color-primary-lighter: #8b9c96
@@ -15,17 +21,27 @@ $color-btn-primary: #ffb614
 $color-white: #fff
 $color-black: #000
 
+$color-shadow: rgba(0, 0, 0, .4)
 
+
+// FONT SIZE
 =font-size($size)
     font-size: $size + px
     font-size: $size / 10 + rem
 
 
+// FONTS
 %font-silver-south-script
-    font-family: 'Silver South Script', script
+    font-family: 'Silver South Script', serif
 
 %font-silver-south-serif
-    font-family: 'Silver South Serif', script
+    font-family: 'Silver South Serif', serif
 
 %font-chronicle-display-light
-    font-family: 'Chronicle Display Light', 'Silver South Serif', script
+    font-family: 'Chronicle Display Light', 'Silver South Serif', serif
+
+%font-chronicle-display-semi
+    font-family: 'Chronicle Display Semi', 'Silver South Serif', serif
+
+%font-calma-display-semibold
+    font-family: 'Calma Display SemiBold', sans-serif

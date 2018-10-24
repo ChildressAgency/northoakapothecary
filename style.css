@@ -6,8 +6,12 @@
   font-family: "Silver South Serif";
   src: url("fonts/SilverSouth/Silver-South-Serif.otf");
 }
+@font-face {
+  font-family: "Calma Display SemiBold";
+  src: url("fonts/Calma/Calma-Display-SemiBold.otf");
+}
 .script {
-  font-family: "Silver South Script", script;
+  font-family: "Silver South Script", serif;
 }
 
 .header .nav-link, h1,
@@ -16,7 +20,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Chronicle Display Light", "Silver South Serif", script;
+  font-family: "Chronicle Display Light", "Silver South Serif", serif;
+}
+
+.bigtext {
+  font-family: "Chronicle Display Semi", "Silver South Serif", serif;
+}
+
+.carousel__heading {
+  font-family: "Calma Display SemiBold", sans-serif;
 }
 
 *,
@@ -38,10 +50,81 @@ body {
   font-size: 1.6rem;
 }
 
+h2 {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+
+h4 {
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+
+h6 {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+div {
+  background-position: center center;
+  background-size: cover;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 15px;
+}
+
+.alignright {
+  float: right;
+  margin-left: 15px;
+}
+
+.alignright,
+.alignleft {
+  margin-bottom: 15px;
+}
+.alignright::after,
+.alignleft::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
 .btn {
   border: 0;
   border-radius: 0;
   padding: 5px 15px;
+  transition: box-shadow 0.1s linear, background-color 0.1s linear;
+}
+.btn:hover {
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
+}
+.btn:active {
+  border: 0;
+}
+.btn:focus {
+  box-shadow: none;
 }
 
 .btn-primary {
@@ -51,6 +134,15 @@ body {
   color: #fff;
   font-style: italic;
 }
+.btn-primary:hover {
+  background-color: #d29b22;
+}
+.btn-primary:active {
+  background-color: #d29b22;
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #d29b22;
+}
 
 .script {
   font-size: 1.56em;
@@ -58,6 +150,55 @@ body {
 
 .subtext {
   font-size: 0.82em;
+}
+
+.bigtext {
+  font-size: 2em;
+}
+
+.overlay {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.overlay--dark {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.overlay--marble {
+  background-image: url("http://dev.childressagency.com/northoak/wp-content/uploads/2018/10/paper-bg.png");
+}
+
+.section {
+  padding-bottom: 60px;
+  padding-top: 60px;
+  position: relative;
+}
+.section--inset {
+  box-shadow: inset 0 30px 15px -15px rgba(0, 0, 0, 0.4), inset 0 -30px 15px -15px rgba(0, 0, 0, 0.4);
+}
+
+.img-boxes {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.img-box {
+  color: #4a494e;
+}
+.img-box:hover {
+  color: #d29b22;
+  text-decoration: none;
+}
+.img-box__image {
+  margin-bottom: 15px;
+}
+.img-box__title {
+  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .masthead {
@@ -139,6 +280,54 @@ body {
   display: none;
 }
 
+.carousel {
+  height: 500px;
+}
+.carousel__heading {
+  font-size: 70px;
+  font-size: 7rem;
+  border-bottom: 1px solid #d29b22;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.carousel__text {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: "Open Sans Condensed", "Open Sans", "sans-serif";
+  font-weight: bold;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-caption {
+  left: 15px;
+  padding: 0;
+  right: 15px;
+  text-align: left;
+  top: 15px;
+  width: auto;
+}
+
+.carousel-indicators {
+  bottom: -30px;
+  justify-content: flex-start;
+  margin: 0;
+  position: relative;
+}
+.carousel-indicators li {
+  height: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 15px;
+}
+
 .footer-boxes {
   color: #ece9e4;
   display: flex;
@@ -195,13 +384,16 @@ body {
 }
 .footer-box form input[type=submit] {
   background-color: #ffb614;
-  flex: 1;
+  cursor: pointer;
   font-weight: bold;
   padding: 10px 30px;
+  transition: box-shadow 0.3s ease;
   width: auto;
 }
+.footer-box form input[type=submit]:hover {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+}
 .footer-box form p {
-  flex-wrap: wrap;
   margin-bottom: 0;
   width: 100%;
 }
@@ -305,6 +497,14 @@ body {
     text-align: left;
   }
 
+  .carousel-caption {
+    left: 5vw;
+    min-width: 650px;
+    right: unset;
+    top: 5vw;
+    width: 45%;
+  }
+
   .footer-boxes {
     flex-direction: row;
   }
@@ -356,6 +556,10 @@ body {
   .footer-box__subtext {
     font-size: 18px;
     font-size: 1.8rem;
+  }
+
+  .carousel-caption {
+    min-width: 800px;
   }
 }
 
