@@ -1,4 +1,10 @@
 @media screen and (min-width: 576px)
+    .img-boxes
+        grid-template-columns: 1fr 1fr
+
+    .bigtext
+        font-size: 2em
+
     .footer
         &__nav
             flex-direction: row
@@ -60,6 +66,10 @@
                 margin-bottom: 0
 
 @media screen and (min-width: 992px)
+    .img-boxes
+        display: flex
+        justify-content: space-between
+
     .header
         &__nav
             width: 50%

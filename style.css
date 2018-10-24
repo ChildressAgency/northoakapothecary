@@ -84,6 +84,11 @@ div {
   background-size: cover;
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 .aligncenter {
   display: block;
   margin-left: auto;
@@ -153,7 +158,7 @@ div {
 }
 
 .bigtext {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .overlay {
@@ -181,8 +186,9 @@ div {
 }
 
 .img-boxes {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr;
   text-align: center;
 }
 
@@ -475,6 +481,14 @@ div {
 }
 
 @media screen and (min-width: 576px) {
+  .img-boxes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bigtext {
+    font-size: 2em;
+  }
+
   .footer__nav {
     flex-direction: row;
   }
@@ -541,6 +555,11 @@ div {
   }
 }
 @media screen and (min-width: 992px) {
+  .img-boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .header__nav {
     width: 50%;
   }

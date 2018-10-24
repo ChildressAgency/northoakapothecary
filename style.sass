@@ -47,6 +47,10 @@ div
     background-position: center center
     background-size: cover
 
+img
+    height: auto
+    max-width: 100%
+
 ///////////////////////////////////////////////////////////////////////////////
 // REUSABLE                                                                  //
 ///////////////////////////////////////////////////////////////////////////////
@@ -114,7 +118,7 @@ div
 
 .bigtext
     @extend %font-chronicle-display-semi
-    font-size: 2em
+    font-size: 1.5em
 
 .overlay
     height: 100%
@@ -139,8 +143,9 @@ div
         box-shadow: inset 0 30px 15px -15px $color-shadow, inset 0 -30px 15px -15px $color-shadow
 
 .img-boxes
-    display: flex
-    justify-content: space-between
+    display: grid
+    grid-gap: 30px
+    grid-template-columns: 1fr
     text-align: center
 
 .img-box
