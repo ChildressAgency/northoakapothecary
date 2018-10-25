@@ -5,6 +5,13 @@
     .bigtext
         font-size: 2em
 
+    .testimonial
+        flex-direction: row
+
+        &__img
+            margin-bottom: 0
+            margin-right: 30px
+
     .footer
         &__nav
             flex-direction: row
@@ -13,6 +20,27 @@
     .featured-products
         grid-template-columns: repeat(3, 1fr)
         justify-content: space-between
+
+    .testimonials
+        flex-direction: row
+
+        &__box
+            margin-bottom: 0
+            margin-right: 60px
+
+            &:last-of-type
+                border-left: 1px solid $color-secondary
+                border-top: 0
+                margin-right: 0
+                padding-left: 60px
+                padding-top: 15px
+
+    .testimonial
+        flex-direction: column
+
+        &__img
+            margin-bottom: 30px
+            margin-right: 0
 
     .masthead
         flex-direction: row
@@ -76,6 +104,13 @@
 
     .featured-products
         grid-gap: 60px
+
+    .testimonial
+        flex-direction: row
+
+        &__img
+            margin-bottom: 0
+            margin-right: 30px
 
     .header
         &__nav

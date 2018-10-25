@@ -358,6 +358,52 @@ a
         +font-size(16)
 
 ///////////////////////////////////////////////////////////////////////////////
+// TESTIMONIALS                                                              //
+///////////////////////////////////////////////////////////////////////////////
+
+.testimonials
+    border-bottom: 1px solid $color-secondary
+    border-top: 1px solid $color-secondary
+    display: flex
+    flex-direction: column
+    padding: 30px 0
+
+    &__box
+        display: flex
+        flex: 1
+        flex-direction: column
+        margin-bottom: 30px
+        padding-top: 15px
+
+        &:last-of-type
+            border-top: 1px solid $color-secondary
+            margin-bottom: 0
+            margin-right: 0
+            padding-top: 60px
+
+    &__name
+        @extend %font-silver-south-script
+        +font-size(34)
+        text-align: right
+
+.testimonial
+    align-items: center
+    display: flex
+    flex-direction: column
+
+    &__quote
+        +font-size(24)
+        font-family: 'Open Sans', sans-serif
+        font-weight: bold
+
+    &__img
+        align-items: center
+        height: 30%
+        margin-bottom: 30px
+        margin-right: 0
+        width: auto
+
+///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
 ///////////////////////////////////////////////////////////////////////////////
 

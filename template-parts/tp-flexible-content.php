@@ -18,6 +18,9 @@ if( have_rows('flexible_content') ):
         elseif( get_row_layout() == 'instagram_feed' ):
             get_template_part( 'template-parts/tp-instagram-feed' );
 
+        elseif( get_row_layout() == 'testimonials' ):
+            get_template_part( 'template-parts/tp-testimonials' );
+
         endif;
 
     endwhile;
