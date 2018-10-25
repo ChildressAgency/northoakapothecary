@@ -143,6 +143,9 @@ hr
     @extend %font-chronicle-display-semi
     font-size: 1.5em
 
+    & + p
+        margin-top: 15px
+
 .overlay
     height: 100%
     left: 0
@@ -161,6 +164,11 @@ hr
     padding-bottom: 60px
     padding-top: 60px
     position: relative
+
+    &::after
+        clear: both
+        content: ' '
+        display: table
 
     &--inset
         box-shadow: inset 0 30px 15px -15px $color-shadow, inset 0 -30px 15px -15px $color-shadow
@@ -212,6 +220,43 @@ hr
 
     &__img
         width: 100%
+
+.two-col
+    display: flex
+    flex-direction: column
+
+    &__left,
+    &__right
+        align-items: center
+        display: flex
+        flex: 1
+        flex-direction: column
+        justify-content: center
+
+    &__left
+        &-border
+            border-left: 1px solid $color-secondary
+            padding-left: 30px
+            padding-right: 30px
+            width: 100%
+
+    &__right
+        &-border
+            border-right: 1px solid $color-secondary
+            padding-left: 30px
+            padding-right: 30px
+            text-align: right
+            width: 100%
+
+    img
+        width: 100%
+
+    p
+        margin-bottom: 0
+        margin-top: 15px
+
+    .bigtext
+        line-height: 1
 
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER                                                                    //

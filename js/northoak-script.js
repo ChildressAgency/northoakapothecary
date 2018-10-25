@@ -50,4 +50,21 @@ $( document ).ready(function(){
 
     $( '.slick-next.slick-arrow' ).html( '<div class="slick-arrow-next"></div>' );
     $( '.slick-prev.slick-arrow' ).html( '<div class="slick-arrow-prev"></div>' );
+
+
+    /**
+     * TWO COLUMN LAYOUT
+     */
+    $( '.two-col__left' ).each( function(){
+        $( this ).not( ':has(img)' ).contents().wrapAll( '<div class="two-col__left-border" />' );
+    } );
+    $( '.two-col__right' ).each( function(){
+        $( this ).not( ':has(img)' ).contents().wrapAll( '<div class="two-col__right-border" />' );
+    } );
+
+
+    /**
+     * Remove p tags from images
+     */
+    $('p > img').unwrap();
 });
