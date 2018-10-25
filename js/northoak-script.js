@@ -36,14 +36,16 @@ $( document ).ready(function(){
      * INSTAGRAM FEED
      */
     $( '.instagram__feed' ).slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        infinite: true,
-        variableWidth: true,
-        dots: false,
-        arrows: true,
-        nextArrow: $( '.instagram__next' ),
-        prevArrow: $( '.instagram__prev' )
+        slidesToShow:       5,
+        slidesToScroll:     1,
+        infinite:           true,
+        variableWidth:      true,
+        dots:               false,
+        arrows:             true,
+        nextArrow:          $( '.instagram__next' ),
+        prevArrow:          $( '.instagram__prev' ),
+        autoplay:           true,
+        autoplaySpeed:      3000
     });
 
     $( '.slick-next.slick-arrow' ).html( '<div class="slick-arrow-next"></div>' );
