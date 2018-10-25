@@ -42,7 +42,8 @@
             </div>
         </div>
         <div class="header">
-            <a href="<?php echo home_url(); ?>"><img src="wp-content/uploads/2018/10/logo.png" /></a>
+            <?php $logo = get_field( 'logo', 'option' ); ?>
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo $logo[ 'url' ]; ?>" alt="<?php echo $logo[ 'alt' ]; ?>" /></a>
             <nav class="navbar navbar-expand-md">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
