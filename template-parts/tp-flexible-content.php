@@ -9,6 +9,9 @@ if( have_rows('flexible_content') ):
         if( get_row_layout() == 'basic' ):
             get_template_part( 'template-parts/tp-basic' );
 
+        elseif( get_row_layout() == 'hero_image' ):
+            get_template_part( 'template-parts/tp-hero-image' );
+
         elseif( get_row_layout() == 'image_boxes' ):
             get_template_part( 'template-parts/tp-img-boxes' );
 

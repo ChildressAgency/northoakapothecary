@@ -61,6 +61,12 @@ a
         color: $color-secondary
         text-decoration: underline
 
+hr
+    background-color: $color-secondary
+    border: 0
+    height: 1px
+    width: 100%
+
 ///////////////////////////////////////////////////////////////////////////////
 // REUSABLE                                                                  //
 ///////////////////////////////////////////////////////////////////////////////
@@ -184,6 +190,28 @@ a
 
     &__title
         +font-size(24)
+
+.hero
+    margin: 30px 0
+    position: relative
+
+    &__text-box
+        @extend %font-calma-display
+        align-items: center
+        color: $color-white
+        display: flex
+        font-size: 6vw
+        height: 100%
+        padding-left: 15px
+        position: absolute
+        width: 100%
+        z-index: 99
+
+    &__text
+        margin-bottom: 0
+
+    &__img
+        width: 100%
 
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER                                                                    //
