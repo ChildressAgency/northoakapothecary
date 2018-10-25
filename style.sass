@@ -132,6 +132,12 @@ hr
     position: relative
     transform: translateX(-50%)
 
+.btn-sign-in
+    +font-size(16)
+    background-color: $color-primary-light
+    color: $color-white
+    padding: 5px 60px
+
 .script
     @extend %font-silver-south-script
     font-size: 1.56em
@@ -579,6 +585,66 @@ hr
 .slick-initialized
     .slick-slide
         height: 100%
+
+///////////////////////////////////////////////////////////////////////////////
+// WHOLESALE                                                                 //
+///////////////////////////////////////////////////////////////////////////////
+
+.wholesale
+    display: flex
+    flex-direction: column-reverse
+
+    &__left,
+    &__right
+        flex: 1
+
+    &__form
+        &-info
+            display: flex
+            flex-direction: column
+
+        &-meta,
+        &-message
+            flex: 1
+            margin-bottom: 15px
+
+        &-meta
+            display: grid
+            grid-template-columns: 1fr
+            row-gap: 15px // sass-lint:disable-line no-misspelled-properties
+
+        &-submit
+            text-align: right
+
+        input,
+        textarea
+            +font-size(16)
+            border: 1px solid $color-primary-lighter
+            font-family: 'Open Sans', sans-serif
+            padding: 10px 20px
+            width: 100%
+
+        textarea
+            height: 200px
+
+        input
+            &[type='submit']
+                +font-size(16)
+                background-color: $color-btn-primary
+                border: 0
+                color: $color-primary
+                cursor: pointer
+                font-family: 'Open Sans', sans-serif
+                font-weight: bold
+                margin-top: 30px
+                padding: 10px 100px
+                width: auto
+
+        br
+            display: none
+
+    img
+        width: 100%
 
 ///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
