@@ -8,7 +8,7 @@ $overlay = $overlay['value']
     <?php if( $overlay != 'none' ): ?><div class="overlay overlay--<?php echo $overlay; ?>"></div><?php endif; ?>
     <div class="container">
         <?php if( get_sub_field( 'section_heading' ) ): ?><h2 class="section__heading"><?php the_sub_field( 'section_heading' ); ?></h2><?php endif; ?>
-        <div class="featured-products">
+        <div class="products">
             <?php
 
             $meta_query = WC()->query->get_meta_query();
@@ -65,16 +65,16 @@ $overlay = $overlay['value']
 
                     ?>
                     
-                    <div class="featured-products__product">
-                        <a href="product/<?php echo $slug; ?>"><img class="featured-products__image" src="<?php echo $image[0]; ?>" /></a>
-                        <div class="featured-products__top">
-                            <div class="featured-products__title-review">
-                                <p class="featured-products__title"><a href="product/<?php echo $slug; ?>"><?php echo $product->name; ?><?php if( $tags ): ?><span class="featured-products__tag"> - <?php echo $tags[0]->name; ?></span><?php endif; ?></a></p>
-                                <p class="featured-products__rating"><?php if( $reviewCount > 0 ) echo $stars; else echo '<a href="product/' . $slug . '">Leave a Review</a>'; ?></p>
+                    <div class="products__product">
+                        <a href="product/<?php echo $slug; ?>"><img class="products__image" src="<?php echo $image[0]; ?>" /></a>
+                        <div class="products__top">
+                            <div class="products__title-review">
+                                <p class="products__title"><a href="product/<?php echo $slug; ?>"><?php echo $product->name; ?><?php if( $tags ): ?><span class="products__tag"> - <?php echo $tags[0]->name; ?></span><?php endif; ?></a></p>
+                                <p class="products__rating"><?php if( $reviewCount > 0 ) echo $stars; else echo '<a href="product/' . $slug . '">Leave a Review</a>'; ?></p>
                             </div>
-                            <p class="featured-products__price"><?php echo $product->price; ?></p>
+                            <p class="products__price"><?php echo $product->price; ?></p>
                         </div>
-                        <p class="featured-products__description"><?php echo $product->description; ?></p>
+                        <p class="products__description"><?php echo $product->description; ?></p>
                     </div>
 
                     <?php
