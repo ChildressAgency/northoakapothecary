@@ -74,7 +74,7 @@ $overlay = $overlay['value']
                             </div>
                             <p class="products__price"><?php echo $product->price; ?></p>
                         </div>
-                        <p class="products__description"><?php echo $product->description; ?></p>
+                        <p class="products__description"><?php if( $product->short_description ) echo $product->short_description; else echo $product->description; ?></p>
                     </div>
 
                     <?php
