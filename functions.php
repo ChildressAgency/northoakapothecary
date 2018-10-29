@@ -68,6 +68,7 @@
 
 	// load fonts
 	function load_fonts() {
+		wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700', false );
 		wp_enqueue_style( 'open-sans-condensed', 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700', false );
 		wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.3.1/css/all.css' );
 	}
@@ -79,6 +80,9 @@
 		'footer_menu' => 'Footer Menu',
 		'copyright_menu' => 'Copyright Menu',
 	) );
+
+	// allow us to override woocommerce templates
+	add_theme_support( 'woocommerce' );
 
 	include "functions/custom-nav-walker.php";
 	include "functions/button-shortcode.php";
