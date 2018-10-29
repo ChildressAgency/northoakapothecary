@@ -67,4 +67,21 @@ $( document ).ready(function(){
      * Remove p tags from images
      */
     $('p > img').unwrap();
+
+
+
+    /**
+     * Add to Cart
+     */
+    $base_url = $( '#add-to-cart-btn' ).attr( 'href' );
+    $base_url = $base_url + '&quantity=';
+
+    $( '#add-to-cart-btn' ).click(function( e ){
+        $url = $base_url + $( '#product-quantity' ).val();
+        $url = $url + '&price=6';
+
+        $( this ).attr( 'href', $url );
+
+        e.currentTarget.click();
+    });
 });

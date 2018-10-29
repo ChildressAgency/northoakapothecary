@@ -56,7 +56,7 @@ h6 {
 }
 
 .wholesale__form input[type=submit], .wholesale__form input,
-.wholesale__form textarea, .testimonial__quote, .product__name, .products__title, body {
+.wholesale__form textarea, .testimonial__quote, .product__wholesale-label, .product__name, .products__title, body {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -542,13 +542,24 @@ hr {
 
 .product {
   display: flex;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
-.product__gallery {
+.product__images {
   flex: 1;
   padding-right: 30px;
 }
 .product__featured-image {
   margin-bottom: 30px;
+  width: 100%;
+}
+.product__gallery {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.product__gallery img {
+  height: auto;
   width: 100%;
 }
 .product__info {
@@ -565,10 +576,43 @@ hr {
   font-size: 40px;
   font-size: 4rem;
 }
+.product__price--strikethrough {
+  color: #8b9c96;
+  margin-right: 15px;
+  text-decoration: line-through;
+}
 .product__review-count {
   font-size: 14px;
   font-size: 1.4rem;
   margin-left: 15px;
+}
+.product__wholesale-label {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.product__add-to-cart {
+  display: flex;
+}
+.product__add-to-cart input {
+  height: 40px;
+  margin-right: 30px;
+  padding: 5px 10px;
+  text-align: center;
+  width: 40px;
+}
+.product__add-to-cart .btn {
+  align-items: center;
+  color: #000;
+  display: flex;
+  font-style: normal;
+  font-weight: bold;
+}
+.product input[type=number] {
+  -moz-appearance: textfield;
+}
+.product input[type=number]::-webkit-inner-spin-button, .product input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .testimonials {
