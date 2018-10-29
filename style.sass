@@ -12,9 +12,9 @@ html
     font-size: 62.5%
 
 body
+    @extend %font-open-sans
     box-sizing: border-box
     color: $color-black
-    font-family: 'Open Sans'
     font-size: 1.6rem
 
 h1,
@@ -362,8 +362,8 @@ hr
         padding-bottom: 15px
 
     &__text
+        @extend %font-open-sans-condensed
         +font-size(16)
-        font-family: 'Open Sans Condensed', 'Open Sans', 'sans-serif'
         font-weight: bold
 
 .carousel-inner
@@ -396,7 +396,7 @@ hr
 // PRODUCTS                                                                  //
 ///////////////////////////////////////////////////////////////////////////////
 
-.featured-products
+.products
     display: grid
     grid-gap: 30px
     grid-template-columns: minmax(auto, 300px)
@@ -408,8 +408,8 @@ hr
         width: 100%
 
     &__title
+        @extend %font-open-sans
         +font-size(16)
-        font-family: 'Open Sans', sans-serif
         font-weight: bold
         margin-bottom: 0
 
@@ -435,6 +435,58 @@ hr
 
     &__description
         +font-size(16)
+
+.pagination
+    justify-content: center
+    margin-top: 30px
+
+    .page-numbers
+        +font-size(16)
+        background-color: $color-pagination
+        color: $color-black
+        font-weight: bold
+        margin: 0 10px
+        padding: 10px 20px
+
+        &.current
+            background-color: $color-btn-primary
+
+    .next,
+    .prev
+        +font-size(28)
+        background-color: transparent
+        color: $color-primary-light
+        padding: 0
+
+.product
+    display: flex
+
+    &__gallery
+        flex: 1
+        padding-right: 30px
+
+    &__featured-image
+        margin-bottom: 30px
+        width: 100%
+
+    &__info
+        flex: 1
+        padding-left: 30px
+
+    &__name
+        @extend %font-open-sans
+        font-weight: bold
+
+    &__tag
+        font-weight: normal
+
+    &__price
+        @extend %font-chronicle-display-xlight
+        +font-size(40)
+
+    &__review-count
+        +font-size(14)
+        margin-left: 15px
 
 ///////////////////////////////////////////////////////////////////////////////
 // TESTIMONIALS                                                              //
@@ -471,8 +523,8 @@ hr
     flex-direction: column
 
     &__quote
+        @extend %font-open-sans
         +font-size(24)
-        font-family: 'Open Sans', sans-serif
         font-weight: bold
 
     &__img
@@ -618,9 +670,9 @@ hr
 
         input,
         textarea
+            @extend %font-open-sans
             +font-size(16)
             border: 1px solid $color-primary-lighter
-            font-family: 'Open Sans', sans-serif
             padding: 10px 20px
             width: 100%
 
@@ -629,12 +681,12 @@ hr
 
         input
             &[type='submit']
+                @extend %font-open-sans
                 +font-size(16)
                 background-color: $color-btn-primary
                 border: 0
                 color: $color-primary
                 cursor: pointer
-                font-family: 'Open Sans', sans-serif
                 font-weight: bold
                 margin-top: 30px
                 padding: 10px 100px

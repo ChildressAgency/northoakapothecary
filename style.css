@@ -27,7 +27,7 @@
   src: url("fonts/Calma/Calma-Display-SemiBold.otf");
 }
 .testimonials__name, .script {
-  font-family: "Silver South Script", serif;
+  font-family: "Silver South Script", script;
 }
 
 .bigtext, h1,
@@ -43,7 +43,7 @@ h6 {
   font-family: "Chronicle Display Light", serif;
 }
 
-.featured-products__price {
+.product__price, .products__price {
   font-family: "Chronicle Display XLight", serif;
 }
 
@@ -53,6 +53,15 @@ h6 {
 
 .carousel__heading {
   font-family: "Calma Display SemiBold", sans-serif;
+}
+
+.wholesale__form input[type=submit], .wholesale__form input,
+.wholesale__form textarea, .testimonial__quote, .product__name, .products__title, body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.carousel__text {
+  font-family: "Open Sans Condensed", "Open Sans", sans-serif;
 }
 
 *,
@@ -70,7 +79,6 @@ html {
 body {
   box-sizing: border-box;
   color: #000;
-  font-family: "Open Sans";
   font-size: 1.6rem;
 }
 
@@ -432,7 +440,6 @@ hr {
 .carousel__text {
   font-size: 16px;
   font-size: 1.6rem;
-  font-family: "Open Sans Condensed", "Open Sans", "sans-serif";
   font-weight: bold;
 }
 
@@ -466,47 +473,102 @@ hr {
   width: 15px;
 }
 
-.featured-products {
+.products {
   display: grid;
   grid-gap: 30px;
   grid-template-columns: minmax(auto, 300px);
   justify-content: space-around;
   margin-bottom: 30px;
 }
-.featured-products__image {
+.products__image {
   margin-bottom: 15px;
   width: 100%;
 }
-.featured-products__title {
+.products__title {
   font-size: 16px;
   font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   margin-bottom: 0;
 }
-.featured-products__title a {
+.products__title a {
   color: #000;
 }
-.featured-products__rating {
+.products__rating {
   margin-bottom: 0;
 }
-.featured-products__tag {
+.products__tag {
   font-weight: normal;
 }
-.featured-products__price {
+.products__price {
   font-size: 40px;
   font-size: 4rem;
 }
-.featured-products__top {
+.products__top {
   display: flex;
   margin-bottom: 15px;
 }
-.featured-products__title-review {
+.products__title-review {
   flex: 1;
 }
-.featured-products__description {
+.products__description {
   font-size: 16px;
   font-size: 1.6rem;
+}
+
+.pagination {
+  justify-content: center;
+  margin-top: 30px;
+}
+.pagination .page-numbers {
+  font-size: 16px;
+  font-size: 1.6rem;
+  background-color: #aebcbf;
+  color: #000;
+  font-weight: bold;
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+.pagination .page-numbers.current {
+  background-color: #ffb614;
+}
+.pagination .next,
+.pagination .prev {
+  font-size: 28px;
+  font-size: 2.8rem;
+  background-color: transparent;
+  color: #626c75;
+  padding: 0;
+}
+
+.product {
+  display: flex;
+}
+.product__gallery {
+  flex: 1;
+  padding-right: 30px;
+}
+.product__featured-image {
+  margin-bottom: 30px;
+  width: 100%;
+}
+.product__info {
+  flex: 1;
+  padding-left: 30px;
+}
+.product__name {
+  font-weight: bold;
+}
+.product__tag {
+  font-weight: normal;
+}
+.product__price {
+  font-size: 40px;
+  font-size: 4rem;
+}
+.product__review-count {
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin-left: 15px;
 }
 
 .testimonials {
@@ -543,7 +605,6 @@ hr {
 .testimonial__quote {
   font-size: 24px;
   font-size: 2.4rem;
-  font-family: "Open Sans", sans-serif;
   font-weight: bold;
 }
 .testimonial__img {
@@ -688,7 +749,6 @@ hr {
   font-size: 16px;
   font-size: 1.6rem;
   border: 1px solid #8b9c96;
-  font-family: "Open Sans", sans-serif;
   padding: 10px 20px;
   width: 100%;
 }
@@ -702,7 +762,6 @@ hr {
   border: 0;
   color: #4a494e;
   cursor: pointer;
-  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   margin-top: 30px;
   padding: 10px 100px;
@@ -889,7 +948,7 @@ hr {
   }
 }
 @media screen and (min-width: 768px) {
-  .featured-products {
+  .products {
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
   }
@@ -1018,7 +1077,7 @@ hr {
     justify-content: space-between;
   }
 
-  .featured-products {
+  .products {
     grid-gap: 60px;
   }
 
