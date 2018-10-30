@@ -1,5 +1,9 @@
 $( document ).ready(function(){
 
+    /**
+     * FOOTER BOXES
+     */
+
     // preload object array to gain performance
     $footerBox_headings = $('.footer-box__heading');
 
@@ -24,4 +28,43 @@ $( document ).ready(function(){
 
     // run at load
     $.fn.setHeadingHeight(0);
+
+
+
+
+    /**
+     * INSTAGRAM FEED
+     */
+    $( '.instagram__feed' ).slick({
+        slidesToShow:       5,
+        slidesToScroll:     1,
+        infinite:           true,
+        variableWidth:      true,
+        dots:               false,
+        arrows:             true,
+        nextArrow:          $( '.instagram__next' ),
+        prevArrow:          $( '.instagram__prev' ),
+        autoplay:           true,
+        autoplaySpeed:      3000
+    });
+
+    $( '.slick-next.slick-arrow' ).html( '<div class="slick-arrow-next"></div>' );
+    $( '.slick-prev.slick-arrow' ).html( '<div class="slick-arrow-prev"></div>' );
+
+
+    /**
+     * TWO COLUMN LAYOUT
+     */
+    $( '.two-col__left' ).each( function(){
+        $( this ).not( ':has(img)' ).contents().wrapAll( '<div class="two-col__left-border" />' );
+    } );
+    $( '.two-col__right' ).each( function(){
+        $( this ).not( ':has(img)' ).contents().wrapAll( '<div class="two-col__right-border" />' );
+    } );
+
+
+    /**
+     * Remove p tags from images
+     */
+    $('p > img').unwrap();
 });

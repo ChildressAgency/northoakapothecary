@@ -13,7 +13,8 @@
         </div>
 
         <div class="footer">
-            <div class="footer__logo"><img src="wp-content/uploads/2018/10/logo-alt.png" /></div>
+            <?php $logo = get_field( 'footer_logo', 'option' ); ?>
+            <div class="footer__logo"><img src="<?php echo $logo[ 'url' ]; ?>" alt="<?php echo $logo[ 'alt' ]; ?>" /></div>
             <div class="footer__info">
                 <?php 
                 wp_nav_menu( array(

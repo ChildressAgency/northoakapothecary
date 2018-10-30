@@ -20,8 +20,8 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
             $output .= "<a class=\"dropdown-item";
 
             // if this item goes to this page, then highlight it
-            if( $objectID == $pageID )
-                $output .= " active";
+            // if( $objectID == $pageID )
+            //     $output .= " active";
 
             $output .= "\" href=\"" . $permalink . "\">";
             $output .= $title;
