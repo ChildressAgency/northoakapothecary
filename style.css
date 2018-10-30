@@ -659,7 +659,8 @@ hr {
   margin: 0;
 }
 
-.comments-title {
+.comments-title,
+.related-title {
   border-bottom: 1px solid #d29b22;
   letter-spacing: 0.1em;
   margin-bottom: 15px;
@@ -725,6 +726,26 @@ hr {
 .fa-star,
 .fa-star-half-alt {
   color: #000;
+}
+
+.woocommerce-Reviews {
+  margin-bottom: 30px;
+}
+
+.related {
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.related .products__price {
+  font-size: 30px;
+  font-size: 3rem;
+}
+.related .products__title, .related .products__rating {
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .testimonials {

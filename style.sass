@@ -570,7 +570,8 @@ hr
                 -webkit-appearance: none
                 margin: 0
 
-.comments-title
+.comments-title,
+.related-title
     border-bottom: 1px solid $color-secondary
     letter-spacing: .1em
     margin-bottom: 15px
@@ -642,6 +643,24 @@ hr
 .fa-star,
 .fa-star-half-alt
     color: $color-black
+
+.woocommerce-Reviews // sass-lint:disable-line class-name-format
+    margin-bottom: 30px
+
+.related
+    display: grid
+    grid-gap: 60px
+    grid-template-columns: repeat(4, 1fr)
+    justify-content: space-between
+    margin-bottom: 30px
+
+    .products
+        &__price
+            +font-size(30)
+
+        &__title,
+        &__rating
+            +font-size(14)
 
 
 ///////////////////////////////////////////////////////////////////////////////
