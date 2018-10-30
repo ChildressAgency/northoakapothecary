@@ -85,6 +85,7 @@
 	add_theme_support( 'woocommerce' );
 
 	include "functions/custom-nav-walker.php";
+	include "functions/comment-walker.php";
 	include "functions/button-shortcode.php";
 	include "functions/script-shortcode.php";
 	include "functions/subtext-shortcode.php";
