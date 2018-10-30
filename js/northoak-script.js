@@ -67,4 +67,62 @@ $( document ).ready(function(){
      * Remove p tags from images
      */
     $('p > img').unwrap();
+
+
+
+    /**
+     * Add to Cart
+     */
+    $base_url = $( '#add-to-cart-btn' ).data( 'cart-url' );
+    $base_url = $base_url + '&quantity=';
+
+    $( '#add-to-cart-btn' ).click(function( e ){
+        $url = $base_url + $( '#product-quantity' ).val();
+        $url = $url + '&price=6';
+
+        $( this ).attr( 'href', $url );
+
+        e.currentTarget.click();
+    });
+
+
+
+
+    /**
+     * Star rating on reviews
+     *
+     * The rating is submitted via a hidden dropdown. When the user clicks on a
+     * star, the stars will change to reflect the chosen rating and the corresponing
+     * option in the dropdown will be chosen.
+     */
+
+    // get stars
+    $stars = $( 'p.stars span a' );
+    // default to 5 star rating
+    $( '#rating>option:eq(5)' ).prop( 'selected', true );
+
+    $stars.each(function( index ){
+        // set all to filled stars
+        $( this ).html( '<i class="fas fa-star"></i>' );
+        // add id to each star
+        $( this ).attr( 'id', 'star-' + index );
+
+        $( this ).on( 'click', function( e ){
+            e.preventDefault();
+            // get index of current star using id
+            $index = parseInt( $( this ).attr( 'id' ).split( '-' )[1], 10 );
+
+            // select appropriate rating from dropdown
+            $( '#rating>option:eq(' + ($index + 1) + ')' ).prop( 'selected', true );
+
+            // replace the filled stars after this one with empty stars
+            $stars.each(function( i ){
+                if( i <= $index )
+                    $( this ).html( '<i class="fas fa-star"></i>' );
+
+                else
+                    $( this ).html( '<i class="far fa-star"></i>' );
+            });
+        } );
+    });
 });

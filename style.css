@@ -26,11 +26,15 @@
   font-family: "Calma Display SemiBold";
   src: url("fonts/Calma/Calma-Display-SemiBold.otf");
 }
+@font-face {
+  font-family: "Akrobat";
+  src: url("fonts/Akrobat/Akrobat-Regular.otf");
+}
 .testimonials__name, .script {
   font-family: "Silver South Script", script;
 }
 
-.bigtext, h1,
+.comment-reply-title, .bigtext, h1,
 h2,
 h3,
 h4,
@@ -55,8 +59,18 @@ h6 {
   font-family: "Calma Display SemiBold", sans-serif;
 }
 
+.comment__text, .comment__author, .comments__based-on, .product__description {
+  font-family: "Akrobat", sans-serif;
+}
+
 .wholesale__form input[type=submit], .wholesale__form input,
-.wholesale__form textarea, .testimonial__quote, .product__name, .products__title, body {
+.wholesale__form textarea, .testimonial__quote, .product__description h1,
+.product__description h2,
+.product__description h3,
+.product__description h4,
+.product__description h5,
+.product__description h6,
+.product__description strong, .product__wholesale-label, .product__name, .products__title, body {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -515,11 +529,13 @@ hr {
   font-size: 1.6rem;
 }
 
-.pagination {
+.pagination,
+.woocommerce-pagination {
   justify-content: center;
   margin-top: 30px;
 }
-.pagination .page-numbers {
+.pagination .page-numbers,
+.woocommerce-pagination .page-numbers {
   font-size: 16px;
   font-size: 1.6rem;
   background-color: #aebcbf;
@@ -528,11 +544,14 @@ hr {
   margin: 0 10px;
   padding: 10px 20px;
 }
-.pagination .page-numbers.current {
+.pagination .page-numbers.current,
+.woocommerce-pagination .page-numbers.current {
   background-color: #ffb614;
 }
 .pagination .next,
-.pagination .prev {
+.pagination .prev,
+.woocommerce-pagination .next,
+.woocommerce-pagination .prev {
   font-size: 28px;
   font-size: 2.8rem;
   background-color: transparent;
@@ -540,15 +559,34 @@ hr {
   padding: 0;
 }
 
+.woocommerce-pagination {
+  border-bottom: 1px solid #8b9c96;
+  display: flex;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 15px 0;
+}
+
 .product {
   display: flex;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
-.product__gallery {
+.product__images {
   flex: 1;
   padding-right: 30px;
 }
 .product__featured-image {
   margin-bottom: 30px;
+  width: 100%;
+}
+.product__gallery {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.product__gallery img {
+  height: auto;
   width: 100%;
 }
 .product__info {
@@ -565,10 +603,149 @@ hr {
   font-size: 40px;
   font-size: 4rem;
 }
+.product__price--strikethrough {
+  color: #8b9c96;
+  margin-right: 15px;
+  text-decoration: line-through;
+}
 .product__review-count {
   font-size: 14px;
   font-size: 1.4rem;
   margin-left: 15px;
+}
+.product__wholesale-label {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.product__add-to-cart {
+  display: flex;
+}
+.product__add-to-cart input {
+  height: 40px;
+  margin-right: 30px;
+  padding: 5px 10px;
+  text-align: center;
+  width: 40px;
+}
+.product__add-to-cart .btn {
+  align-items: center;
+  color: #000;
+  display: flex;
+  font-style: normal;
+  font-weight: bold;
+}
+.product__social {
+  align-items: center;
+  border-bottom: 1px solid #8b9c96;
+  border-top: 1px solid #8b9c96;
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+  padding: 15px 30px;
+}
+.product__social-link {
+  font-size: 30px;
+  font-size: 3rem;
+  color: #8b9c96;
+}
+.product__social-link:hover {
+  color: #4a494e;
+}
+.product input[type=number] {
+  -moz-appearance: textfield;
+}
+.product input[type=number]::-webkit-inner-spin-button, .product input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.comments-title,
+.related-title {
+  border-bottom: 1px solid #d29b22;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.comments__based-on {
+  margin-left: 15px;
+}
+
+.comment {
+  border-bottom: 1px solid #8b9c96;
+  padding: 15px 0;
+}
+.comment:first-of-type {
+  border-top: 1px solid #8b9c96;
+  margin-top: 15px;
+}
+.comment__author {
+  color: #8b9c96;
+  font-style: italic;
+  text-align: right;
+}
+.comment-reply-title {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+.comment-form-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-submit input[type=submit] {
+  font-size: 16px;
+  font-size: 1.6rem;
+  background-color: #ffb614;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  font-style: italic;
+  padding: 5px 30px;
+  transition: box-shadow 0.1s linear, background-color 0.1s linear;
+}
+.form-submit input[type=submit]:hover {
+  background-color: #ffb614;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.4);
+}
+.form-submit input[type=submit]:active {
+  background-color: #d29b22;
+  border: 0;
+  box-shadow: none;
+}
+.form-submit input[type=submit]:focus {
+  box-shadow: none;
+}
+.form-submit input[type=submit]:not(:disabled):not(.disabled):active {
+  background-color: #d29b22;
+  box-shadow: none;
+}
+
+.fa-star,
+.fa-star-half-alt {
+  color: #000;
+}
+
+.woocommerce-Reviews {
+  margin-bottom: 30px;
+}
+
+.related {
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.related .products__price {
+  font-size: 30px;
+  font-size: 3rem;
+}
+.related .products__title, .related .products__rating {
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .testimonials {
