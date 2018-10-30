@@ -399,7 +399,7 @@ hr
 .products
     display: grid
     grid-gap: 30px
-    grid-template-columns: minmax(auto, 300px)
+    grid-template-columns: minmax(auto, 300px) // sass-lint:disable-line function-name-format
     justify-content: space-around
     margin-bottom: 30px
 
@@ -436,7 +436,8 @@ hr
     &__description
         +font-size(16)
 
-.pagination
+.pagination,
+.woocommerce-pagination
     justify-content: center
     margin-top: 30px
 
@@ -457,6 +458,13 @@ hr
         background-color: transparent
         color: $color-primary-light
         padding: 0
+
+.woocommerce-pagination
+    border-bottom: 1px solid $color-primary-lighter
+    display: flex
+    margin: 0
+    margin-bottom: 15px
+    padding: 15px 0
 
 .product
     display: flex
@@ -525,6 +533,34 @@ hr
             font-style: normal
             font-weight: bold
 
+    &__social
+        align-items: center
+        border-bottom: 1px solid $color-primary-lighter
+        border-top: 1px solid $color-primary-lighter
+        display: flex
+        justify-content: space-around
+        margin: 30px 0
+        padding: 15px 30px
+
+        &-link
+            +font-size(30)
+            color: $color-primary-lighter
+
+            &:hover
+                color: $color-primary
+
+    &__description
+        @extend %font-akrobat
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        strong
+            @extend %font-open-sans
+
     input
         &[type='number']
             -moz-appearance: textfield
@@ -533,6 +569,80 @@ hr
             &::-webkit-outer-spin-button
                 -webkit-appearance: none
                 margin: 0
+
+.comments-title
+    border-bottom: 1px solid $color-secondary
+    letter-spacing: .1em
+    margin-bottom: 15px
+    padding-bottom: 15px
+    text-align: center
+
+.comments
+    &__based-on
+        @extend %font-akrobat
+        margin-left: 15px
+
+.comment
+    border-bottom: 1px solid $color-primary-lighter
+    padding: 15px 0
+
+    &:first-of-type
+        border-top: 1px solid $color-primary-lighter
+        margin-top: 15px
+
+    &__text,
+    &__author
+        @extend %font-akrobat
+
+    &__author
+        color: $color-primary-lighter
+        font-style: italic
+        text-align: right
+
+    &-reply-title
+        @extend %font-chronicle-display-semi
+        +font-size(24)
+
+    &-form-comment
+        display: flex
+        flex-direction: column
+
+.form-submit
+    // sass-lint:disable-block nesting-depth
+    input
+        &[type='submit']
+            +font-size(16)
+            background-color: $color-btn-primary
+            border: 0
+            border-radius: 0
+            color: $color-white
+            cursor: pointer
+            font-style: italic
+            padding: 5px 30px
+            transition: box-shadow .1s linear, background-color .1s linear
+
+            &:hover
+                background-color: $color-btn-primary
+                box-shadow: 6px 6px 10px $color-shadow
+
+            &:active
+                background-color: $color-secondary
+                border: 0
+                box-shadow: none
+
+            &:focus
+                box-shadow: none
+
+            &:not(:disabled)
+                &:not(.disabled)
+                    &:active
+                        background-color: $color-secondary
+                        box-shadow: none
+
+.fa-star,
+.fa-star-half-alt
+    color: $color-black
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // TESTIMONIALS                                                              //
