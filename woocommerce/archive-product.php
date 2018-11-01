@@ -24,10 +24,14 @@ get_header(); ?>
 
             <?php
 
-            $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-            $postsPerPage = get_field( 'products_per_page' );
-            if( !$postsPerPage )
-                $postsPerPage = 9;
+            // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+            if( get_query_var( 'paged' ) )
+                $paged = get_query_var( 'paged' );
+            elseif( get_query_var( 'page' ) )
+                $paged = get_query_var( 'page' );
+            else
+                $paged = 1;
+            $postsPerPage = 9;
 
             if( $cat ) {
 
@@ -136,7 +140,7 @@ get_header(); ?>
             ?>
         </div>
 
-        <?php wp_reset_query(); ?>
+        <?php wp_reset_postdata(); ?>
     </div>
 </div>
 

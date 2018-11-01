@@ -84,6 +84,12 @@
 	// allow us to override woocommerce templates
 	add_theme_support( 'woocommerce' );
 
+	function products_per_page( $query ){
+		if( $query->is_archive( 'product' )  )
+			set_query_var( 'posts_per_page', 9 );
+	}
+	add_action( 'pre_get_posts', 'products_per_page' );
+
 	include "functions/custom-nav-walker.php";
 	include "functions/comment-walker.php";
 	include "functions/button-shortcode.php";
