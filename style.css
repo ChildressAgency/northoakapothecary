@@ -362,8 +362,8 @@ hr {
 }
 
 .masthead {
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 14px;
+  font-size: 1.4rem;
   background-color: #4a494e;
   color: #ece9e4;
   display: flex;
@@ -375,8 +375,8 @@ hr {
   color: #ece9e4;
 }
 .masthead__contact, .masthead__newsletter, .masthead__shop {
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 7px;
+  padding-top: 7px;
 }
 .masthead__newsletter {
   background-color: #626c75;
@@ -1216,9 +1216,15 @@ hr {
   }
 
   .masthead {
+    font-size: 12px;
+    font-size: 1.2rem;
     flex-direction: row;
     padding: 0 15px;
     text-align: left;
+  }
+  .masthead__contact, .masthead__newsletter, .masthead__shop {
+    padding-bottom: 5px;
+    padding-top: 5px;
   }
   .masthead__newsletter {
     left: 50%;
