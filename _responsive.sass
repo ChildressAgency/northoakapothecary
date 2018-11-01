@@ -16,6 +16,12 @@
         grid-gap: 60px
         grid-template-columns: repeat(2, 1fr)
 
+    .contact
+        &__text
+            &--social
+                & > strong
+                    padding: 0 15%
+
     .hero
         &__text-box
             +font-size(40)
@@ -103,6 +109,25 @@
         &__social
             padding: 15px 30px
 
+    .contact
+        &__info
+            flex-direction: row
+
+        &__column
+            margin-bottom: 0
+
+        &__form
+            form
+                p
+                    grid-template-columns: repeat(3, 1fr)
+
+            input
+                &[type='submit']
+                    grid-column: 2
+
+            .message
+                grid-column: span 3
+
     .masthead
         +font-size(12)
         flex-direction: row
@@ -144,6 +169,7 @@
 
         &__info
             margin-left: 30px
+            padding: 0
 
         &__contact
             flex-direction: row

@@ -958,6 +958,62 @@ hr {
   width: 100%;
 }
 
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+.contact__column {
+  margin-bottom: 30px;
+}
+.contact__heading {
+  font-size: 33px;
+  font-size: 3.3rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.contact__text {
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+.contact__text--social {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+.contact__text--social > strong {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10%;
+}
+.contact__text--social a {
+  color: #000;
+}
+.contact__text--social a:hover {
+  color: #626c75;
+}
+.contact__form {
+  margin-top: 60px;
+}
+.contact__form form p {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr;
+}
+.contact__form br {
+  display: none;
+}
+.contact__form input[type=text], .contact__form input[type=email], .contact__form input[type=tel] {
+  border: 1px solid #8b9c96;
+  padding: 10px 15px;
+  width: 100%;
+}
+.contact__form .message textarea {
+  border: 1px solid #8b9c96;
+  padding: 5px 15px;
+  width: 100%;
+}
+
 .footer-boxes {
   color: #ece9e4;
   display: flex;
@@ -1043,6 +1099,7 @@ hr {
 .footer__info {
   display: flex;
   flex-direction: column;
+  padding: 0 15px;
 }
 .footer__contact {
   border-bottom: 1px solid #d29b22;
@@ -1123,6 +1180,10 @@ hr {
   .related {
     grid-gap: 60px;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact__text--social > strong {
+    padding: 0 15%;
   }
 
   .hero__text-box {
@@ -1218,6 +1279,22 @@ hr {
     padding: 15px 30px;
   }
 
+  .contact__info {
+    flex-direction: row;
+  }
+  .contact__column {
+    margin-bottom: 0;
+  }
+  .contact__form form p {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact__form input[type=submit] {
+    grid-column: 2;
+  }
+  .contact__form .message {
+    grid-column: span 3;
+  }
+
   .masthead {
     font-size: 12px;
     font-size: 1.2rem;
@@ -1261,6 +1338,7 @@ hr {
   }
   .footer__info {
     margin-left: 30px;
+    padding: 0;
   }
   .footer__contact {
     flex-direction: row;
