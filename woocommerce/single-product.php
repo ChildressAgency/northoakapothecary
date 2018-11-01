@@ -154,8 +154,7 @@ get_header(); ?>
 	
 		<?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->get_id() ) ) : ?>
 	
-			<div id="review_form_wrapper">
-				<div id="review_form">
+			<div class="comments__form">
 					<?php
 						$commenter = wp_get_current_commenter();
 	
@@ -223,152 +222,154 @@ get_header(); ?>
 
 	if( $upsells || $cross_sells || $related_products ): ?>
 
-		<h2 class="related-title">YOU MAY ALSO LIKE</h2>
-		
-		<div class="related">
-
-			<?php 
-			// all related products
-			$all_related = array();
-			$meta_query = WC()->query->get_meta_query();
-
-			if( $upsells ){
-				// get upsells
-				$args = array(
-					'post_type'				=> 'product',
-					'ignore_sticky_posts'	=> 1,
-					'no_found_rows'			=> 1,
-					'posts_per_page'		=> $max_related,
-					'post__in'				=> $upsells,
-					'meta_query'			=> $meta_query
-				);
-				$related_upsells = new WP_Query( $args );
-
-				$max_related -= $related_upsells->post_count;
-
-				// add upsells to list of related products
-				if( $related_upsells->have_posts() ){
-					while( $related_upsells->have_posts() ){
-						$related_upsells->the_post();
-						array_push( $all_related, get_the_ID() );
+		<div class="container">
+			<h2 class="related-title">YOU MAY ALSO LIKE</h2>
+			
+			<div class="related">
+			
+				<?php 
+				// all related products
+				$all_related = array();
+				$meta_query = WC()->query->get_meta_query();
+			
+				if( $upsells ){
+					// get upsells
+					$args = array(
+						'post_type'				=> 'product',
+						'ignore_sticky_posts'	=> 1,
+						'no_found_rows'			=> 1,
+						'posts_per_page'		=> $max_related,
+						'post__in'				=> $upsells,
+						'meta_query'			=> $meta_query
+					);
+					$related_upsells = new WP_Query( $args );
+			
+					$max_related -= $related_upsells->post_count;
+			
+					// add upsells to list of related products
+					if( $related_upsells->have_posts() ){
+						while( $related_upsells->have_posts() ){
+							$related_upsells->the_post();
+							array_push( $all_related, get_the_ID() );
+						}
 					}
 				}
-			}
-
-			if( $cross_sells && $max_related > 0 ){
-				// exclude duplicates
-				foreach( $all_related as $id ){
-					if( ( $key = array_search( $id, $cross_sells ) ) !== false ){
-						unset( $cross_sells[$key] );
+			
+				if( $cross_sells && $max_related > 0 ){
+					// exclude duplicates
+					foreach( $all_related as $id ){
+						if( ( $key = array_search( $id, $cross_sells ) ) !== false ){
+							unset( $cross_sells[$key] );
+						}
+					}
+			
+					// get cross sells
+					$args = array(
+						'post_type'				=> 'product',
+						'ignore_sticky_posts'	=> 1,
+						'no_found_rows'			=> 1,
+						'posts_per_page'		=> $max_related,
+						'post__in'				=> $cross_sells,
+						'meta_query'			=> $meta_query
+					);
+					$related_cross_sells = new WP_Query( $args );
+			
+					$max_related -= $related_cross_sells->post_count;
+			
+					// add cross sells to list of related products
+					if( $related_cross_sells->have_posts() ){
+						while( $related_cross_sells->have_posts() ){
+							$related_cross_sells->the_post();
+							array_push( $all_related, get_the_ID() );
+						}
 					}
 				}
-
-				// get cross sells
-				$args = array(
-					'post_type'				=> 'product',
-					'ignore_sticky_posts'	=> 1,
-					'no_found_rows'			=> 1,
-					'posts_per_page'		=> $max_related,
-					'post__in'				=> $cross_sells,
-					'meta_query'			=> $meta_query
-				);
-				$related_cross_sells = new WP_Query( $args );
-
-				$max_related -= $related_cross_sells->post_count;
-
-				// add cross sells to list of related products
-				if( $related_cross_sells->have_posts() ){
-					while( $related_cross_sells->have_posts() ){
-						$related_cross_sells->the_post();
-						array_push( $all_related, get_the_ID() );
+			
+				if( $related_products && $max_related > 0 ){
+					// exclude duplicates
+					foreach( $all_related as $id ){
+						if( ( $key = array_search( $id, $related_products ) ) !== false ){
+							unset( $related_products[$key] );
+						}
+					}
+			
+					// get related products
+					$args = array(
+						'post_type'				=> 'product',
+						'ignore_sticky_posts'	=> 1,
+						'no_found_rows'			=> 1,
+						'posts_per_page'		=> $max_related,
+						'post__in'				=> $related_products,
+						'meta_query'			=> $meta_query
+					);
+					$related_products = new WP_Query( $args );
+			
+					$max_related -= $related_products->post_count;
+			
+					// add $related_products to list of related products
+					if( $related_products->have_posts() ){
+						while( $related_products->have_posts() ){
+							$related_products->the_post();
+							array_push( $all_related, get_the_ID() );
+						}
 					}
 				}
-			}
-
-			if( $related_products && $max_related > 0 ){
-				// exclude duplicates
-				foreach( $all_related as $id ){
-					if( ( $key = array_search( $id, $related_products ) ) !== false ){
-						unset( $related_products[$key] );
+			
+				foreach( $all_related as $id ):
+					$pageID = $id;
+					$product = get_product( $pageID );
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageID ), 'single-post-thumbnail' );
+					$name = $product->name;
+					$tag = get_the_terms( $query->post->ID, 'product_tag' );
+					$tag = $tag[0]->name;
+					$rating = $product->get_average_rating();
+					$reviewCount = $product->review_count;
+					$price = $product->price;
+			                    $slug = $product->slug;
+			
+					$stars = '';
+					$remainingStars = $rating;
+			
+					for( $remainingStars; floor( $remainingStars ) > 0; $remainingStars-- ){
+					    $stars .= '<i class="fas fa-star"></i>';
 					}
-				}
-
-				// get related products
-				$args = array(
-					'post_type'				=> 'product',
-					'ignore_sticky_posts'	=> 1,
-					'no_found_rows'			=> 1,
-					'posts_per_page'		=> $max_related,
-					'post__in'				=> $related_products,
-					'meta_query'			=> $meta_query
-				);
-				$related_products = new WP_Query( $args );
-
-				$max_related -= $related_products->post_count;
-
-				// add $related_products to list of related products
-				if( $related_products->have_posts() ){
-					while( $related_products->have_posts() ){
-						$related_products->the_post();
-						array_push( $all_related, get_the_ID() );
+			
+					if( $remainingStars >= .5 ){
+					    $stars .= '<i class="fas fa-star-half-alt"></i>';
+					    $rating = ceil( $rating );
 					}
-				}
-			}
-
-			foreach( $all_related as $id ):
-				$pageID = $id;
-				$product = get_product( $pageID );
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageID ), 'single-post-thumbnail' );
-				$name = $product->name;
-				$tag = get_the_terms( $query->post->ID, 'product_tag' );
-				$tag = $tag[0]->name;
-				$rating = $product->get_average_rating();
-				$reviewCount = $product->review_count;
-				$price = $product->price;
-		                    $slug = $product->slug;
-		
-				$stars = '';
-				$remainingStars = $rating;
-		
-				for( $remainingStars; floor( $remainingStars ) > 0; $remainingStars-- ){
-				    $stars .= '<i class="fas fa-star"></i>';
-				}
-		
-				if( $remainingStars >= .5 ){
-				    $stars .= '<i class="fas fa-star-half-alt"></i>';
-				    $rating = ceil( $rating );
-				}
-		
-				if( $rating < 5 ){
-				    for( $rating; $rating < 5; $rating++ ){
-				        $stars .= '<i class="far fa-star"></i>';
-				    }
-				}
-		
-				$wholesale_price = get_post_meta( $product->id, 'wholesale_customer_wholesale_price' )[0];
-				$is_wholesale = false;
-				if( is_user_logged_in() ){
-					$user_meta = get_userdata( get_current_user_id() );
-					$user_roles = $user_meta->roles;
-		
-					if( in_array( 'wholesale_customer', $user_roles ) ){
-						$is_wholesale = true;
-						$price = $wholesale_price;
+			
+					if( $rating < 5 ){
+					    for( $rating; $rating < 5; $rating++ ){
+					        $stars .= '<i class="far fa-star"></i>';
+					    }
 					}
-				}
-				?>
-				
-				<div class="products__product">
-				    <a href="<?php echo $slug; ?>"><img class="products__image" src="<?php echo $image[0]; ?>" /></a>
-				    <div class="products__top">
-				        <div class="products__title-review">
-				            <p class="products__title"><a href="<?php echo $slug; ?>"><?php echo $product->name; ?><?php if( $tags ): ?><span class="products__tag"> - <?php echo $tags[0]->name; ?></span><?php endif; ?></a></p>
-				            <p class="products__rating"><?php if( $reviewCount > 0 ) echo $stars; else echo '<a href="' . $slug . '">Leave a Review</a>'; ?></p>
-				        </div>
-				        <p class="products__price"><?php echo $price; ?></p>
-				    </div>
-				</div>
-			<?php endforeach; ?>
+			
+					$wholesale_price = get_post_meta( $product->id, 'wholesale_customer_wholesale_price' )[0];
+					$is_wholesale = false;
+					if( is_user_logged_in() ){
+						$user_meta = get_userdata( get_current_user_id() );
+						$user_roles = $user_meta->roles;
+			
+						if( in_array( 'wholesale_customer', $user_roles ) ){
+							$is_wholesale = true;
+							$price = $wholesale_price;
+						}
+					}
+					?>
+					
+					<div class="products__product">
+					    <a href="<?php echo $slug; ?>"><img class="products__image" src="<?php echo $image[0]; ?>" /></a>
+					    <div class="products__top">
+					        <div class="products__title-review">
+					            <p class="products__title"><a href="<?php echo $slug; ?>"><?php echo $product->name; ?><?php if( $tags ): ?><span class="products__tag"> - <?php echo $tags[0]->name; ?></span><?php endif; ?></a></p>
+					            <p class="products__rating"><?php if( $reviewCount > 0 ) echo $stars; else echo '<a href="' . $slug . '">Leave a Review</a>'; ?></p>
+					        </div>
+					        <p class="products__price"><?php echo $price; ?></p>
+					    </div>
+					</div>
+				<?php endforeach; ?>
+			</div>
 		</div>
 
 	<?php endif; ?>

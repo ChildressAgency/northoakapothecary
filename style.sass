@@ -478,7 +478,6 @@ hr
 
     &__images
         flex: 1
-        padding-right: 15px
 
     &__featured-image
         margin-bottom: 30px
@@ -496,7 +495,6 @@ hr
 
     &__info
         flex: 1
-        padding-left: 15px
 
     &__name
         @extend %font-open-sans
@@ -525,19 +523,19 @@ hr
     &__add-to-cart
         display: flex
 
-        input
-            height: 40px
-            margin-right: 30px
-            padding: 5px 10px
-            text-align: center
-            width: 40px
-
         .btn
             align-items: center
             color: $color-black
             display: flex
             font-style: normal
             font-weight: bold
+
+    &__quantity
+        height: 40px
+        margin-right: 15px
+        padding: 5px 10px
+        text-align: center
+        width: 40px
 
     &__social
         align-items: center
@@ -588,6 +586,12 @@ hr
     &__based-on
         @extend %font-akrobat
         margin-left: 15px
+
+    &__form
+        input
+            &[type='text'],
+            &[type='email']
+                width: 100%
 
 .comment
     border-bottom: 1px solid $color-primary-lighter
@@ -965,7 +969,6 @@ hr
     &__info
         display: flex
         flex-direction: column
-        margin-left: 30px
 
     &__contact
         border-bottom: 1px solid $color-secondary
