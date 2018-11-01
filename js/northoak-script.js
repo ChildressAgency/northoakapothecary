@@ -3,8 +3,6 @@ $( document ).ready(function(){
     /**
      * FOOTER BOXES
      */
-
-    // preload object array to gain performance
     $footerBox_headings = $('.footer-box__heading');
 
     // run at resize
@@ -52,6 +50,7 @@ $( document ).ready(function(){
     $( '.slick-prev.slick-arrow' ).html( '<div class="slick-arrow-prev"></div>' );
 
 
+
     /**
      * TWO COLUMN LAYOUT
      */
@@ -61,6 +60,7 @@ $( document ).ready(function(){
     $( '.two-col__right' ).each( function(){
         $( this ).not( ':has(img)' ).contents().wrapAll( '<div class="two-col__right-border" />' );
     } );
+
 
 
     /**
@@ -125,4 +125,21 @@ $( document ).ready(function(){
             });
         } );
     });
+
+
+
+    /**
+     * Single Product Gallery Images
+     */
+    $gallery = $( '.product__gallery > .attachment-full' );
+    $featured = $( '.product__featured-image' );
+
+    $gallery.each( function(){
+        console.log( 'TRACE - each' );
+        $( this ).click( function(){
+            $src = $( this ).attr( 'src' );
+
+            $( '.product__featured-image' ).attr( 'src', $src );
+        } );
+    } );
 });

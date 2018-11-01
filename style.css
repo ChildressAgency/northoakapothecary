@@ -588,6 +588,7 @@ hr {
 .product__gallery img {
   height: auto;
   width: 100%;
+  cursor: pointer;
 }
 .product__info {
   flex: 1;

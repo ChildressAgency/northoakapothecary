@@ -63,10 +63,12 @@ get_header(); ?>
 				<?php 
 				$imageIDs = $product->get_gallery_attachment_ids();
 	
-				echo wp_get_attachment_image( $product->image_id, 'thumbnail' );
+				// display featured image
+				echo wp_get_attachment_image( $product->image_id, 'full' );
 	
+				// display gallery images
 				foreach( $imageIDs as $image ){
-					echo wp_get_attachment_image( $image, 'thumbnail' );
+					echo wp_get_attachment_image( $image, 'full' );
 				}
 				?>
 			</div>
