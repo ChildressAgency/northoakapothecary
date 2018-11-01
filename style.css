@@ -562,19 +562,24 @@ hr {
 .woocommerce-pagination {
   border-bottom: 1px solid #8b9c96;
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
   margin-bottom: 15px;
-  padding: 15px 0;
+  padding-top: 15px;
+}
+.woocommerce-pagination .page-numbers {
+  margin-bottom: 15px;
 }
 
 .product {
   display: flex;
+  flex-direction: column-reverse;
   margin-bottom: 30px;
   margin-top: 30px;
 }
 .product__images {
   flex: 1;
-  padding-right: 30px;
+  padding-right: 15px;
 }
 .product__featured-image {
   margin-bottom: 30px;
@@ -582,17 +587,17 @@ hr {
 }
 .product__gallery {
   display: grid;
-  grid-gap: 30px;
+  grid-gap: 15px;
   grid-template-columns: repeat(4, 1fr);
 }
 .product__gallery img {
+  cursor: pointer;
   height: auto;
   width: 100%;
-  cursor: pointer;
 }
 .product__info {
   flex: 1;
-  padding-left: 30px;
+  padding-left: 15px;
 }
 .product__name {
   font-weight: bold;
@@ -642,7 +647,7 @@ hr {
   display: flex;
   justify-content: space-around;
   margin: 30px 0;
-  padding: 15px 30px;
+  padding: 15px 0;
 }
 .product__social-link {
   font-size: 30px;
@@ -735,8 +740,8 @@ hr {
 
 .related {
   display: grid;
-  grid-gap: 60px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  grid-template-columns: 1fr;
   justify-content: space-between;
   margin-bottom: 30px;
 }
@@ -1115,6 +1120,11 @@ hr {
     margin-right: 30px;
   }
 
+  .related {
+    grid-gap: 60px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .hero__text-box {
     font-size: 40px;
     font-size: 4rem;
@@ -1187,6 +1197,22 @@ hr {
   }
   .wholesale__form textarea {
     height: 100%;
+  }
+
+  .product {
+    flex-direction: row;
+  }
+  .product__images {
+    padding-right: 30px;
+  }
+  .product__gallery {
+    grid-gap: 30px;
+  }
+  .product__info {
+    padding-left: 30px;
+  }
+  .product__social {
+    padding: 15px 30px;
   }
 
   .masthead {
@@ -1265,6 +1291,10 @@ hr {
   .testimonial__img {
     margin-bottom: 0;
     margin-right: 30px;
+  }
+
+  .related {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .hero__text-box {

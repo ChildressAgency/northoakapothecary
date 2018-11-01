@@ -12,6 +12,10 @@
             margin-bottom: 0
             margin-right: 30px
 
+    .related
+        grid-gap: 60px
+        grid-template-columns: repeat(2, 1fr)
+
     .hero
         &__text-box
             +font-size(40)
@@ -80,6 +84,21 @@
 
             textarea
                 height: 100%
+
+    .product
+        flex-direction: row
+
+        &__images
+            padding-right: 30px
+
+        &__gallery
+            grid-gap: 30px
+
+        &__info
+            padding-left: 30px
+
+        &__social
+            padding: 15px 30px
 
     .masthead
         flex-direction: row
@@ -150,6 +169,9 @@
         &__img
             margin-bottom: 0
             margin-right: 30px
+
+    .related
+        grid-template-columns: repeat(4, 1fr)
 
     .hero
         &__text-box

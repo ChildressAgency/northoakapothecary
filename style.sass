@@ -462,18 +462,23 @@ hr
 .woocommerce-pagination
     border-bottom: 1px solid $color-primary-lighter
     display: flex
+    flex-wrap: wrap
     margin: 0
     margin-bottom: 15px
-    padding: 15px 0
+    padding-top: 15px
+
+    .page-numbers
+        margin-bottom: 15px
 
 .product
     display: flex
+    flex-direction: column-reverse
     margin-bottom: 30px
     margin-top: 30px
 
     &__images
         flex: 1
-        padding-right: 30px
+        padding-right: 15px
 
     &__featured-image
         margin-bottom: 30px
@@ -481,7 +486,7 @@ hr
 
     &__gallery
         display: grid
-        grid-gap: 30px
+        grid-gap: 15px
         grid-template-columns: repeat(4, 1fr)
 
         img
@@ -491,7 +496,7 @@ hr
 
     &__info
         flex: 1
-        padding-left: 30px
+        padding-left: 15px
 
     &__name
         @extend %font-open-sans
@@ -541,7 +546,7 @@ hr
         display: flex
         justify-content: space-around
         margin: 30px 0
-        padding: 15px 30px
+        padding: 15px 0
 
         &-link
             +font-size(30)
@@ -650,8 +655,8 @@ hr
 
 .related
     display: grid
-    grid-gap: 60px
-    grid-template-columns: repeat(4, 1fr)
+    grid-gap: 30px
+    grid-template-columns: 1fr
     justify-content: space-between
     margin-bottom: 30px
 
