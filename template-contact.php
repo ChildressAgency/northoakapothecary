@@ -44,7 +44,7 @@ get_header(); ?>
                     <textarea name="" id="" placeholder="Message"></textarea>
                     <input type="submit" class="btn btn-center btn-sign-in" value="SEND" />
                 </form> -->
-                <?php echo do_shortcode( '[contact-form-7 id="228" title="Contact Form"]' ); ?>
+                <?php echo do_shortcode( get_field( 'form' ) ); ?>
             </div>
         </div>
     </div>

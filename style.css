@@ -1285,6 +1285,9 @@ hr {
   .contact__column {
     margin-bottom: 0;
   }
+  .contact__text--social > strong {
+    padding: 0;
+  }
   .contact__form form p {
     grid-template-columns: repeat(3, 1fr);
   }
