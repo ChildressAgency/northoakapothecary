@@ -36,8 +36,8 @@
                 <a href="#"><em>Join Our Newsletter</em></a>
             </div>
             <div class="masthead__shop">
-                <a href="#">Login <i class="fas fa-user"></i></a>
-                <a href="#">Cart <i class="fas fa-shopping-cart"></i> (0)</a>
+                <a href="<?php echo home_url( 'login' ); ?>">Login <i class="fas fa-user"></i></a>
+                <a href="<?php echo wc_get_cart_url(); ?>">Cart <i class="fas fa-shopping-cart"></i> (<?php echo WC()->cart->get_cart_contents_count(); ?>)</a>
                 <a href=""><i class="fas fa-search"></i></a>
             </div>
         </div>
