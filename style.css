@@ -1078,6 +1078,27 @@ hr {
   width: 100%;
 }
 
+.checkout__2-col {
+  display: flex;
+  flex-direction: column;
+}
+.checkout__billing {
+  flex: 4;
+  margin-bottom: 30px;
+}
+.checkout__additional {
+  flex: 1;
+}
+
+.woocommerce-input-wrapper {
+  width: 100%;
+}
+.woocommerce-input-wrapper input,
+.woocommerce-input-wrapper textarea {
+  border: 1px solid #8b9c96;
+  padding: 10px 15px;
+}
+
 .footer-boxes {
   color: #ece9e4;
   display: flex;
@@ -1360,6 +1381,13 @@ hr {
   }
   .contact__form .message {
     grid-column: span 3;
+  }
+
+  .checkout__2-col {
+    flex-direction: row;
+  }
+  .checkout__billing {
+    margin-right: 30px;
   }
 
   .masthead {
