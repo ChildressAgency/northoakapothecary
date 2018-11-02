@@ -986,6 +986,36 @@ hr
 
 
 ///////////////////////////////////////////////////////////////////////////////
+// CART                                                                      //
+///////////////////////////////////////////////////////////////////////////////
+
+.cart-collaterals
+    padding-left: 15px
+    padding-right: 15px
+
+.products--cart
+    grid-gap: 30px
+
+    .products
+        &__title,
+        &__rating
+            +font-size(14)
+
+        &__price
+            +font-size(30)
+
+.woocommerce
+    .cart-collaterals
+        .cross-sells
+            float: none
+            width: 100%
+
+        .cart_totals // sass-lint:disable-line class-name-format
+            float: none
+            width: 100%
+
+
+///////////////////////////////////////////////////////////////////////////////
 // FOOTER                                                                    //
 ///////////////////////////////////////////////////////////////////////////////
 

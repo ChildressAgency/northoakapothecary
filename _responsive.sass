@@ -206,6 +206,9 @@
     .products
         grid-gap: 60px
 
+        &--cart
+            grid-gap: 30px
+
     .product
         &__images
             padding-right: 30px
@@ -222,6 +225,16 @@
 
     .related
         grid-template-columns: repeat(4, 1fr)
+
+    .woocommerce
+        .cart-collaterals
+            .cross-sells
+                float: left
+                width: 48%
+
+            .cart_totals // sass-lint:disable-line class-name-format
+                float: right
+                width: 48%
 
     .hero
         &__text-box
