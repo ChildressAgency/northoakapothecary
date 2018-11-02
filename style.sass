@@ -434,6 +434,7 @@ hr
         flex: 1
 
     &__description
+        @extend %font-akrobat
         +font-size(16)
 
 .pagination,
@@ -828,6 +829,7 @@ hr
 ///////////////////////////////////////////////////////////////////////////////
 
 .wholesale
+    @extend %font-akrobat
     display: flex
     flex-direction: column-reverse
 
@@ -879,6 +881,9 @@ hr
 
         br
             display: none
+
+    strong
+        @extend %font-open-sans
 
     img
         width: 100%
@@ -1033,6 +1038,13 @@ hr
     textarea
         border: 1px solid $color-primary-lighter
         padding: 10px 15px
+
+///////////////////////////////////////////////////////////////////////////////
+// ULTIMATE MEMBER                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+.um
+    opacity: 1 !important // sass-lint:disable-line no-important
 
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -86,6 +86,6 @@ $overlay = $overlay['value']
             ?>
 
         </div>
-        <a href="shop" class="btn btn-primary btn-center">Shop All</a>
+        <a href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) ); ?>" class="btn btn-primary btn-center">Shop All</a>
     </div>
 </div>

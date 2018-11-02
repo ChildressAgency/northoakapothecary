@@ -36,9 +36,14 @@
                 <a href="#"><em>Join Our Newsletter</em></a>
             </div>
             <div class="masthead__shop">
-                <a href="<?php echo home_url( 'login' ); ?>">Login <i class="fas fa-user"></i></a>
+                <?php if( is_user_logged_in() ): ?>
+                    <a href="<?php echo wp_logout_url(); ?>">Logout <i class="fas fa-user"></i></a>
+                <?php else: ?>
+                    <a href="<?php echo home_url( 'login' ); ?>">Login <i class="fas fa-user"></i></a>
+                <?php endif; ?>
+                    
                 <a href="<?php echo wc_get_cart_url(); ?>">Cart <i class="fas fa-shopping-cart"></i> (<?php echo WC()->cart->get_cart_contents_count(); ?>)</a>
-                <a href=""><i class="fas fa-search"></i></a>
+                <!-- <a href=""><i class="fas fa-search"></i></a> -->
             </div>
         </div>
         <div class="header">

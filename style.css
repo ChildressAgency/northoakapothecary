@@ -59,11 +59,11 @@ h6 {
   font-family: "Calma Display SemiBold", sans-serif;
 }
 
-.comment__text, .comment__author, .comments__based-on, .product__description {
+.wholesale, .comment__text, .comment__author, .comments__based-on, .product__description, .products__description {
   font-family: "Akrobat", sans-serif;
 }
 
-.wholesale__form input[type=submit], .wholesale__form input,
+.wholesale strong, .wholesale__form input[type=submit], .wholesale__form input,
 .wholesale__form textarea, .testimonial__quote, .product__description h1,
 .product__description h2,
 .product__description h3,
@@ -1097,6 +1097,10 @@ hr {
 .woocommerce-input-wrapper textarea {
   border: 1px solid #8b9c96;
   padding: 10px 15px;
+}
+
+.um {
+  opacity: 1 !important;
 }
 
 .footer-boxes {
