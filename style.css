@@ -1014,6 +1014,44 @@ hr {
   width: 100%;
 }
 
+.journal {
+  flex: 3;
+}
+.journal__post {
+  border-bottom: 1px solid #8b9c96;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.journal__heading {
+  margin-bottom: 15px;
+}
+.journal__heading a {
+  color: #000;
+}
+
+.sidebar {
+  flex: 1;
+  margin-left: 60px;
+}
+.sidebar__heading {
+  margin-top: 30px;
+}
+.sidebar__heading:first-of-type {
+  margin-top: 0;
+}
+.sidebar li {
+  list-style: none;
+}
+.sidebar hr {
+  background-color: #8b9c96;
+  height: 1px;
+  width: 100%;
+}
+
+.journal-wrapper {
+  display: flex;
+}
+
 .footer-boxes {
   color: #ece9e4;
   display: flex;
