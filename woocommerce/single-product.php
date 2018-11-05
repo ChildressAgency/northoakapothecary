@@ -17,6 +17,7 @@ get_header(); ?>
 	$pageID = get_the_ID();
 	$product = get_product( $pageID );
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $pageID ), 'single-post-thumbnail' );
+	$image_url = $image[0];
 	$name = $product->name;
 	$tag = get_the_terms( $query->post->ID, 'product_tag' );
 	$tag = $tag[0]->name;
@@ -58,7 +59,7 @@ get_header(); ?>
 	
 	<div class="product">
 		<div class="product__images">
-			<img class="product__featured-image" src="<?php echo $image[0]; ?>" />
+			<img class="product__featured-image" src="<?php echo $image_url; ?>" />
 			<div class="product__gallery">
 				<?php 
 				$imageIDs = $product->get_gallery_attachment_ids();
@@ -95,11 +96,10 @@ get_header(); ?>
 				</div>
 			</div>
 			<div class="product__social">
-				<?php if( get_field( 'twitter', 'option' ) ): ?><a class="product__social-link" href="<?php the_field( 'twitter', 'option' ); ?>"><i class="fab fa-twitter-square"></i></a><?php endif; ?>
-				<?php if( get_field( 'facebook', 'option' ) ): ?><a class="product__social-link" href="<?php the_field( 'facebook', 'option' ); ?>"><i class="fab fa-facebook-square"></i></a><?php endif; ?>
-				<?php if( get_field( 'pinterest', 'option' ) ): ?><a class="product__social-link" href="<?php the_field( 'pinterest', 'option' ); ?>"><i class="fab fa-pinterest-square"></i></a><?php endif; ?>
-				<?php if( get_field( 'instagram', 'option' ) ): ?><a class="product__social-link" href="<?php the_field( 'instagram', 'option' ); ?>"><i class="fab fa-instagram"></i></a><?php endif; ?>
-				<?php if( get_field( 'linkedin', 'option' ) ): ?><a class="product__social-link" href="<?php the_field( 'linkedin', 'option' ); ?>"><i class="fab fa-linkedin"></i></a><?php endif; ?>
+				<?php $twitter = get_bloginfo( 'name' ) . ' - ' . rawurlencode( $name ) . ' ' . home_url( $product->slug ); ?>
+				<a href="https://twitter.com/intent/tweet?text=<?php echo $twitter; ?>" class="product__social-link twitter-share-button"><i class="fab fa-twitter-square"></i></a>
+				<a href="http://www.facebook.com/share.php?u=<?php echo home_url( $product->slug ); ?>" class="product__social-link"><i class="fab fa-facebook-square"></i></a>
+				<a href="http://pinterest.com/pin/create/button/?url=<?php echo home_url( $product->slug ); ?>&media=<?php echo $image_url; ?><?php if( $product->short_description ): ?>&description=<?php echo $product->short_description; endif; ?>" class="product__social-link pin-it-button" count-layout="horizontal"><i class="fab fa-pinterest-square"></i></a>
 			</div>
 		</div>
 	</div>
