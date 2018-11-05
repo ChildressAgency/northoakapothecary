@@ -32,6 +32,13 @@
 			true
 		);
 		wp_register_script(
+			'homepage-popup', 
+			'/wp-content/themes/northoak/js/homepage-popup.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
+		wp_register_script(
 			'slick-script', 
 			'//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', 
 			array('jquery'), 
@@ -42,6 +49,10 @@
 		wp_enqueue_script( 'bootstrap-script' );
 		wp_enqueue_script( 'northoak-script' );
 		wp_enqueue_script( 'slick-script' );
+
+		if( is_front_page() ){
+			wp_enqueue_script( 'homepage-popup' );
+		}
 	}
 	add_action('wp_enqueue_scripts', 'northoak_scripts', 100);
 	

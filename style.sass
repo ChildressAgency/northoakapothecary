@@ -166,6 +166,11 @@ hr
     &--marble
         background-image: url('http://dev.childressagency.com/northoak/wp-content/uploads/2018/10/paper-bg.png')
 
+    &--popup
+        background-color: rgba(0, 0, 0, .6)
+        padding: 15px
+        position: initial
+
 .section
     padding-bottom: 60px
     padding-top: 60px
@@ -887,6 +892,89 @@ hr
 
     img
         width: 100%
+
+///////////////////////////////////////////////////////////////////////////////
+// POPUP                                                                     //
+///////////////////////////////////////////////////////////////////////////////
+
+.popup-wrapper
+    align-items: center
+    background-color: rgba(0, 0, 0, .4)
+    display: none
+    height: 100%
+    justify-content: center
+    left: 0
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 99
+
+.popup
+    background-color: $color-white
+    position: relative
+
+    &--newsletter
+        color: $color-white
+        text-align: center
+
+    &__close
+        +font-size(24)
+        color: $color-white
+        cursor: pointer
+        position: absolute
+        right: 15px
+        top: 0
+
+    .script
+        display: block
+        font-size: 3.75em
+        margin-bottom: -15px
+
+    h2
+        margin-bottom: 5px
+
+    p
+        border: 1px solid $color-secondary
+        display: block
+        padding: 5px 30px
+
+    form
+        margin-top: 15px
+
+        p
+            border: 0
+            margin-bottom: 0
+            padding: 0
+            width: 100%
+
+        .ajax-loader
+            display: block
+            margin: 0 auto
+
+        .wpcf7-form-control-wrap
+            display: inline-block
+            margin-bottom: 10px
+            margin-right: 5px
+            max-width: 100%
+
+        input
+            +font-size(16)
+            border: 0
+            color: $color-primary
+            max-width: 100%
+            padding: 10px 15px
+            width: auto
+
+            &[type='submit']
+                background-color: $color-btn-primary
+                cursor: pointer
+                font-weight: bold
+                padding: 10px 30px
+                transition: box-shadow .3s ease
+                width: auto
+
+                &:hover
+                    box-shadow: 3px 3px 10px $color-shadow
 
 ///////////////////////////////////////////////////////////////////////////////
 // CONTACT                                                                   //

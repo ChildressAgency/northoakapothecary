@@ -260,6 +260,11 @@ hr {
 .overlay--marble {
   background-image: url("http://dev.childressagency.com/northoak/wp-content/uploads/2018/10/paper-bg.png");
 }
+.overlay--popup {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  position: initial;
+}
 
 .section {
   padding-bottom: 60px;
@@ -956,6 +961,89 @@ hr {
 }
 .wholesale img {
   width: 100%;
+}
+
+.popup-wrapper {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.popup {
+  background-color: #fff;
+  position: relative;
+}
+.popup--newsletter {
+  color: #fff;
+  text-align: center;
+}
+.popup__close {
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+.popup .script {
+  display: block;
+  font-size: 3.75em;
+  margin-bottom: -15px;
+}
+.popup h2 {
+  margin-bottom: 5px;
+}
+.popup p {
+  border: 1px solid #d29b22;
+  display: block;
+  padding: 5px 30px;
+}
+.popup form {
+  margin-top: 15px;
+}
+.popup form p {
+  border: 0;
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+}
+.popup form .ajax-loader {
+  display: block;
+  margin: 0 auto;
+}
+.popup form .wpcf7-form-control-wrap {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  max-width: 100%;
+}
+.popup form input {
+  font-size: 16px;
+  font-size: 1.6rem;
+  border: 0;
+  color: #4a494e;
+  max-width: 100%;
+  padding: 10px 15px;
+  width: auto;
+}
+.popup form input[type=submit] {
+  background-color: #ffb614;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 30px;
+  transition: box-shadow 0.3s ease;
+  width: auto;
+}
+.popup form input[type=submit]:hover {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 .contact__info {

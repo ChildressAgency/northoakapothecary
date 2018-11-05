@@ -142,4 +142,17 @@ $( document ).ready(function(){
             $( '.product__featured-image' ).attr( 'src', $src );
         } );
     } );
+
+
+
+    /**
+     * Newsletter Popup
+     */
+    $( '.masthead__newsletter a' ).click(function(){
+        $( '#newsletter-popup' ).css( 'display', 'flex' );
+    });
+
+    $( '.popup__close' ).click(function(){
+        $( '.popup-wrapper' ).css( 'display', 'none' );
+    });
 });
