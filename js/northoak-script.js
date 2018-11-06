@@ -135,7 +135,6 @@ $( document ).ready(function(){
     $featured = $( '.product__featured-image' );
 
     $gallery.each( function(){
-        console.log( 'TRACE - each' );
         $( this ).click( function(){
             $src = $( this ).attr( 'src' );
 
@@ -146,10 +145,11 @@ $( document ).ready(function(){
 
 
     /**
-     * Newsletter Popup
+     * Popups
      */
-    $( '.masthead__newsletter a' ).click(function(){
-        $( '#newsletter-popup' ).css( 'display', 'flex' );
+    $( '.popup__trigger' ).click(function(){
+        $link = $( this ).attr( 'href' );
+        $( $link ).css( 'display', 'flex' );
     });
 
     $( '.popup__close' ).click(function(){
@@ -159,10 +159,9 @@ $( document ).ready(function(){
 
 
     /**
-     * Popups
+     * Newsletter Popup
      */
-    $( '.popup__trigger' ).click(function(){
-        $link = $( this ).attr( 'href' );
-        $( $link ).css( 'display', 'flex' );
+    $( '.masthead__newsletter a' ).click(function(){
+        $( '#newsletter-popup' ).css( 'display', 'flex' );
     });
 });
