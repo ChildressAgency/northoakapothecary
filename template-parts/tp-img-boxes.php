@@ -12,7 +12,9 @@ $overlay = $overlay['value']
             <div class="img-boxes">
                 <?php while( have_rows( 'image_boxes' ) ): the_row(); ?>
                     <a class="img-box" href="<?php the_sub_field( 'link' ); ?>">
-                        <img class="img-box__image" src="<?php the_sub_field( 'image' ); ?>" />
+                        <div class="img-box__image-wrapper">
+                            <img class="img-box__image" src="<?php the_sub_field( 'image' ); ?>" />
+                        </div>
                         <h3 class="img-box__title"><?php the_sub_field( 'title' ); ?></h3>
                     </a>
                 <?php endwhile; ?>
