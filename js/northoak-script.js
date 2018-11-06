@@ -155,4 +155,14 @@ $( document ).ready(function(){
     $( '.popup__close' ).click(function(){
         $( '.popup-wrapper' ).css( 'display', 'none' );
     });
+
+
+
+    /**
+     * Popups
+     */
+    $( '.popup__trigger' ).click(function(){
+        $link = $( this ).attr( 'href' );
+        $( $link ).css( 'display', 'flex' );
+    });
 });

@@ -171,6 +171,14 @@ hr
         padding: 15px
         position: initial
 
+        .popup__close
+            color: $color-white
+
+        p
+            border: 1px solid $color-secondary
+            display: block
+            padding: 5px 30px
+
 .section
     padding-bottom: 60px
     padding-top: 60px
@@ -224,7 +232,7 @@ hr
         padding-left: 15px
         position: absolute
         width: 100%
-        z-index: 99
+        z-index: 50
 
     &__text
         margin-bottom: 0
@@ -917,13 +925,43 @@ hr
         color: $color-white
         text-align: center
 
+    &--two-col
+        @extend %font-akrobat
+        +font-size(14)
+        max-height: 90vh
+        overflow-y: scroll
+        padding: 15px 20px
+        display: flex
+
+        &::after
+            clear: both
+            content: ' '
+            display: table
+
+        strong
+            @extend %font-open-sans
+            +font-size(16)
+
     &__close
         +font-size(24)
-        color: $color-white
+        color: $color-primary-light
         cursor: pointer
         position: absolute
         right: 15px
         top: 0
+
+    &__content
+        overflow-y: scroll
+
+        &::after
+            clear: both
+            content: ' '
+            display: table
+
+    &__image
+        margin-bottom: 15px
+        // max-height: 100%
+        width: 100%
 
     .script
         display: block
@@ -932,11 +970,6 @@ hr
 
     h2
         margin-bottom: 5px
-
-    p
-        border: 1px solid $color-secondary
-        display: block
-        padding: 5px 30px
 
     form
         margin-top: 15px
@@ -963,7 +996,7 @@ hr
             color: $color-primary
             max-width: 100%
             padding: 10px 15px
-            width: auto
+            width: 100%
 
             &[type='submit']
                 background-color: $color-btn-primary

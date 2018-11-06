@@ -59,11 +59,11 @@ h6 {
   font-family: "Calma Display SemiBold", sans-serif;
 }
 
-.wholesale, .comment__text, .comment__author, .comments__based-on, .product__description, .products__description {
+.popup--two-col, .wholesale, .comment__text, .comment__author, .comments__based-on, .product__description, .products__description {
   font-family: "Akrobat", sans-serif;
 }
 
-.wholesale strong, .wholesale__form input[type=submit], .wholesale__form input,
+.popup--two-col strong, .wholesale strong, .wholesale__form input[type=submit], .wholesale__form input,
 .wholesale__form textarea, .testimonial__quote, .product__description h1,
 .product__description h2,
 .product__description h3,
@@ -265,6 +265,14 @@ hr {
   padding: 15px;
   position: initial;
 }
+.overlay--popup .popup__close {
+  color: #fff;
+}
+.overlay--popup p {
+  border: 1px solid #d29b22;
+  display: block;
+  padding: 5px 30px;
+}
 
 .section {
   padding-bottom: 60px;
@@ -322,7 +330,7 @@ hr {
   padding-left: 15px;
   position: absolute;
   width: 100%;
-  z-index: 99;
+  z-index: 50;
 }
 .hero__text {
   margin-bottom: 0;
@@ -984,14 +992,43 @@ hr {
   color: #fff;
   text-align: center;
 }
+.popup--two-col {
+  font-size: 14px;
+  font-size: 1.4rem;
+  max-height: 90vh;
+  overflow-y: scroll;
+  padding: 15px 20px;
+  display: flex;
+}
+.popup--two-col::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+.popup--two-col strong {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
 .popup__close {
   font-size: 24px;
   font-size: 2.4rem;
-  color: #fff;
+  color: #626c75;
   cursor: pointer;
   position: absolute;
   right: 15px;
   top: 0;
+}
+.popup__content {
+  overflow-y: scroll;
+}
+.popup__content::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+.popup__image {
+  margin-bottom: 15px;
+  width: 100%;
 }
 .popup .script {
   display: block;
@@ -1000,11 +1037,6 @@ hr {
 }
 .popup h2 {
   margin-bottom: 5px;
-}
-.popup p {
-  border: 1px solid #d29b22;
-  display: block;
-  padding: 5px 30px;
 }
 .popup form {
   margin-top: 15px;
@@ -1032,7 +1064,7 @@ hr {
   color: #4a494e;
   max-width: 100%;
   padding: 10px 15px;
-  width: auto;
+  width: 100%;
 }
 .popup form input[type=submit] {
   background-color: #ffb614;
@@ -1482,6 +1514,12 @@ hr {
     margin-right: 30px;
   }
 
+  .popup__image {
+    float: right;
+    margin-left: 15px;
+    width: auto;
+  }
+
   .masthead {
     font-size: 12px;
     font-size: 1.2rem;
@@ -1617,6 +1655,12 @@ hr {
 
   .carousel-caption {
     min-width: 800px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .popup--two-col {
+    font-size: 16px;
+    font-size: 1.6rem;
   }
 }
 
