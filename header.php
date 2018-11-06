@@ -64,7 +64,7 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="main-menu">
                     <?php 
                     wp_nav_menu( array(
                         'theme_location'    =>  'main_menu',
