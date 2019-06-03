@@ -26,7 +26,7 @@
     </style>
     <![endif]-->
 </head>
-<body>
+<body <?php body_class(); ?>>
     <header>
         <div class="masthead">
             <div class="masthead__contact">

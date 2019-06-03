@@ -1,10 +1,10 @@
 <?php
 
-	add_action('wp_footer', 'show_template');
-	function show_template() {
-		global $template;
-		print_r($template);
-	}
+	 add_action('wp_footer', 'show_template');
+	 function show_template() {
+	 	global $template;
+	 	print_r($template);
+	 }
 
 	function jquery_cdn(){
 	  if(!is_admin()){
@@ -32,6 +32,13 @@
 			true
 		);
 		wp_register_script(
+			'homepage-popup', 
+			'/wp-content/themes/northoak/js/homepage-popup.js', 
+			array('jquery'), 
+			'', 
+			true
+		);
+		wp_register_script(
 			'slick-script', 
 			'//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', 
 			array('jquery'), 
@@ -42,17 +49,23 @@
 		wp_enqueue_script( 'bootstrap-script' );
 		wp_enqueue_script( 'northoak-script' );
 		wp_enqueue_script( 'slick-script' );
+
+		if( is_front_page() ){
+			wp_enqueue_script( 'homepage-popup' );
+		}
 	}
 	add_action('wp_enqueue_scripts', 'northoak_scripts', 100);
 	
 	function northoak_styles(){
 	  wp_register_style('bootstrap-css', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
 	  wp_register_style('northoak', get_template_directory_uri() . '/style.css');
-	  wp_register_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+    wp_register_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+    wp_register_style('woo-styles', get_template_directory_uri() . '/woo-styles.css');
 	  
 	  wp_enqueue_style('bootstrap-css');
 	  wp_enqueue_style('northoak');
-	  wp_enqueue_style('slick');
+    wp_enqueue_style('slick');
+    wp_enqueue_style('woo-styles');
 	}
 	add_action('wp_enqueue_scripts', 'northoak_styles');
 
@@ -84,10 +97,18 @@
 	// allow us to override woocommerce templates
 	add_theme_support( 'woocommerce' );
 
+	function products_per_page( $query ){
+		if( $query->is_archive( 'product' )  )
+			set_query_var( 'posts_per_page', 9 );
+	}
+	add_action( 'pre_get_posts', 'products_per_page' );
+
 	include "functions/custom-nav-walker.php";
 	include "functions/comment-walker.php";
 	include "functions/button-shortcode.php";
 	include "functions/script-shortcode.php";
 	include "functions/subtext-shortcode.php";
-	include "functions/bigtext-shortcode.php";
+  include "functions/bigtext-shortcode.php";
+  
+  require_once 'functions/woo-functions.php';
 ?>

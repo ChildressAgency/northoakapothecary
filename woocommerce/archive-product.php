@@ -1,143 +1,107 @@
-<?php 
-
+<?php
 /**
+ * The Template for displaying product archives, including the main shop page which is a post type archive
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
  * @version 3.4.0
  */
 
-get_header(); ?>
+defined( 'ABSPATH' ) || exit;
 
-<div class="section">
-    <div class="container">
-        <?php $cat = htmlspecialchars( $_GET['cat'] ); ?>
-        <?php $pageID = woocommerce_get_page_id( 'shop' ); ?>
-        <?php if( get_field( 'section_heading', $pageID ) ): ?>
-            <?php if( $cat ): ?>
-                <h2 class="section__heading"><?php echo strtoupper( $cat ); ?></h2>
-            <?php else: ?>
-                <h2 class="section__heading"><?php the_field( 'section_heading', $pageID ); ?></h2>
-            <?php endif; ?>
-        <?php endif; ?>
-        <div class="products">
+get_header( 'shop' );
 
-            <?php
+/**
+ * Hook: woocommerce_before_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+ * @hooked woocommerce_breadcrumb - 20
+ * @hooked WC_Structured_Data::generate_website_data() - 30
+ */
+do_action( 'woocommerce_before_main_content' );
 
-            $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-            $postsPerPage = get_field( 'products_per_page' );
-            if( !$postsPerPage )
-                $postsPerPage = 9;
+?>
+<header class="woocommerce-products-header">
+	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+    <h2 class="section__heading" style="text-transform:uppercase;"><?php woocommerce_page_title(); ?></h2>
+	<?php endif; ?>
 
-            if( $cat ) {
+	<?php
+	/**
+	 * Hook: woocommerce_archive_description.
+	 *
+	 * @hooked woocommerce_taxonomy_archive_description - 10
+	 * @hooked woocommerce_product_archive_description - 10
+	 */
+	do_action( 'woocommerce_archive_description' );
+	?>
+</header>
+<?php
+if ( woocommerce_product_loop() ) {
 
-                $tax_query[] = array(
-                    'taxonomy'  => 'product_cat',
-                    'field'     => 'slug',
-                    'terms'     => $cat,
-                    'operator'  => 'IN'
-                );
+	/**
+	 * Hook: woocommerce_before_shop_loop.
+	 *
+	 * @hooked woocommerce_output_all_notices - 10
+	 * @hooked woocommerce_result_count - 20
+	 * @hooked woocommerce_catalog_ordering - 30
+	 */
+	do_action( 'woocommerce_before_shop_loop' );
 
-                $args = array(
-                    'post_type'         => 'product',
-                    'post_status'       => 'publish',
-                    'orderby'			=> 'name',
-                    'order'				=> 'ASC',
-                    'posts_per_page'    => $postsPerPage,
-                    'paged'             => $paged,
-                    'tax_query'         => $tax_query
-                );
-            } else {
-                $args = array(
-                    'post_type'         => 'product',
-                    'post_status'       => 'publish',
-                    'orderby'			=> 'name',
-                    'order'				=> 'ASC',
-                    'posts_per_page'    => $postsPerPage,
-                    'paged'             => $paged,
-                );
-            }
+	woocommerce_product_loop_start();
 
-            $query = new WP_Query( $args );
+	if ( wc_get_loop_prop( 'total' ) ) {
+		while ( have_posts() ) {
+			the_post();
 
-            if( $query->have_posts() ):
-                while( $query->have_posts() ):
-                    $query->the_post();
+			/**
+			 * Hook: woocommerce_shop_loop.
+			 *
+			 * @hooked WC_Structured_Data::generate_product_data() - 10
+			 */
+			do_action( 'woocommerce_shop_loop' );
 
-                    $product = get_product( $query->post->ID );
-                    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $query->post->ID ), 'single-post-thumbnail' );
-                    $tags = get_the_terms( $query->post->ID, 'product_tag' );
-                    $rating = $product->get_average_rating();
-                    $reviewCount = $product->review_count;
-                    $slug = $product->slug;
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
 
-                    $metadata = $product->get_meta_data();
+	woocommerce_product_loop_end();
 
-                    $stars = '';
-                    $remainingStars = $rating;
+	/**
+	 * Hook: woocommerce_after_shop_loop.
+	 *
+	 * @hooked woocommerce_pagination - 10
+	 */
+	do_action( 'woocommerce_after_shop_loop' );
+} else {
+	/**
+	 * Hook: woocommerce_no_products_found.
+	 *
+	 * @hooked wc_no_products_found - 10
+	 */
+	do_action( 'woocommerce_no_products_found' );
+}
 
-                    for( $remainingStars; floor( $remainingStars ) > 0; $remainingStars-- ){
-                        $stars .= '<i class="fas fa-star"></i>';
-                    }
+/**
+ * Hook: woocommerce_after_main_content.
+ *
+ * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+ */
+do_action( 'woocommerce_after_main_content' );
 
-                    if( $remainingStars >= .5 ){
-                        $stars .= '<i class="fas fa-star-half-alt"></i>';
-                        $rating = ceil( $rating );
-                    }
+/**
+ * Hook: woocommerce_sidebar.
+ *
+ * @hooked woocommerce_get_sidebar - 10
+ */
+do_action( 'woocommerce_sidebar' );
 
-                    if( $rating < 5 ){
-                        for( $rating; $rating < 5; $rating++ ){
-                            $stars .= '<i class="far fa-star"></i>';
-                        }
-                    }
-
-                    $price = $product->price;
-
-                    ?>
-                    
-                    <div class="products__product">
-                        <a href="<?php echo $slug; ?>"><img class="products__image" src="<?php echo $image[0]; ?>" /></a>
-                        <div class="products__top">
-                            <div class="products__title-review">
-                                <p class="products__title"><a href="<?php echo $slug; ?>"><?php echo $product->name; ?><?php if( $tags ): ?><span class="products__tag"> - <?php echo $tags[0]->name; ?></span><?php endif; ?></a></p>
-                                <p class="products__rating"><?php if( $reviewCount > 0 ) echo $stars; else echo '<a href="' . $slug . '">Leave a Review</a>'; ?></p>
-                            </div>
-                            <p class="products__price"><?php echo $price; ?></p>
-                        </div>
-                        <p class="products__description"><?php if( $product->short_description ) echo $product->short_description; else echo $product->description; ?></p>
-                    </div>
-
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-        </div>
-
-        <?php if( $cat ): ?>
-            <button class="btn btn-primary btn-center" onclick="window.location = window.location.href.split('?')[0];" >Shop All</button>
-        <?php endif; ?>
-
-        <div class="pagination">
-            <?php 
-                echo paginate_links( array(
-                    'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-                    'total'        => $query->max_num_pages,
-                    'current'      => max( 1, get_query_var( 'paged' ) ),
-                    'format'       => '?paged=%#%',
-                    'show_all'     => false,
-                    'type'         => 'plain',
-                    'end_size'     => 1,
-                    'mid_size'     => 2,
-                    'prev_next'    => true,
-                    'prev_text' => __( '<', 'textdomain' ),
-                    'next_text' => __( '>', 'textdomain' ),
-                    'add_args'     => false,
-                    'add_fragment' => '',
-                ) );
-            ?>
-        </div>
-
-        <?php wp_reset_query(); ?>
-    </div>
-</div>
-
-<?php get_footer(); ?>
+get_footer( 'shop' );
