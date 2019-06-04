@@ -36,8 +36,14 @@
                 <a href="#"><em>Join Our Newsletter</em></a>
             </div>
             <div class="masthead__shop">
-                <a href="#">Login <i class="fas fa-user"></i></a>
-                <a href="#">Cart <i class="fas fa-shopping-cart"></i> (0)</a>
+                <?php if( is_user_logged_in() ): ?>
+                    <a href="<?php echo esc_url(home_url('my-account')); ?>">My Account <i class="fas fa-user"></i></a>
+                <?php else: ?>
+                    <a href="<?php echo home_url( 'login' ); ?>">Login <i class="fas fa-user"></i></a>
+                <?php endif; ?>
+
+                <!--<a href="#">Cart <i class="fas fa-shopping-cart"></i> (0)</a>-->
+                <?php do_action('northoak_show_cart_link'); ?>
                 <a href=""><i class="fas fa-search"></i></a>
             </div>
         </div>

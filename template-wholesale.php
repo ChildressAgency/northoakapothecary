@@ -19,16 +19,14 @@ get_header(); ?>
                 </div>
             </div>
             <!-- <form class="wholesale__form">
-                <div class="wholesale__form-info">
-                    <div class="wholesale__form-meta">
-                        <span><input type="text" placeholder="Name" /></span>
-                        <span><input type="text" placeholder="Email" /></span>
-                        <span><input type="text" placeholder="Phone Number" /></span>
-                        <span><input type="text" placeholder="Company" /></span>
-                    </div>
-                    <div class="wholesale__form-message">
-                        <span><textarea placeholder="Message"></textarea></span>
-                    </div>
+                <div class="wholesale__form-meta">
+                    <span><input type="text" placeholder="Name" /></span>
+                    <span><input type="text" placeholder="Email" /></span>
+                    <span><input type="text" placeholder="Phone Number" /></span>
+                    <span><input type="text" placeholder="Company" /></span>
+                </div>
+                <div class="wholesale__form-message">
+                    <span><textarea placeholder="Message"></textarea></span>
                 </div>
             </form> -->
             <?php echo do_shortcode( '[contact-form-7 id="189" title="Wholesale Form"]' ); ?>
