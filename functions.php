@@ -104,7 +104,7 @@
 	add_action( 'pre_get_posts', 'products_per_page' );
 
 	include "functions/custom-nav-walker.php";
-	include "functions/comment-walker.php";
+	//include "functions/comment-walker.php";
 	include "functions/button-shortcode.php";
 	include "functions/script-shortcode.php";
 	include "functions/subtext-shortcode.php";
