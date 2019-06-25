@@ -64,3 +64,10 @@ add_action('woocommerce_after_cart', 'northoak_after_cart');
 function northoak_after_cart(){
   echo '</div>';
 }
+
+add_action('after_setup_theme', 'northoak_product_gallery');
+function northoak_product_gallery(){
+  add_theme_support('wc-product-gallery-zoom');
+  add_theme_support('wc-product-gallery-lightbox');
+  add_theme_support('wc-product-gallery-slider');
+}
