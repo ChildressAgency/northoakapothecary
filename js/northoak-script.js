@@ -97,6 +97,7 @@ $( document ).ready(function(){
      */
 
     // get stars
+    /*
     $stars = $( 'p.stars span a' );
     // default to 5 star rating
     $( '#rating>option:eq(5)' ).prop( 'selected', true );
@@ -124,5 +125,5 @@ $( document ).ready(function(){
                     $( this ).html( '<i class="far fa-star"></i>' );
             });
         } );
-    });
+    });*/
 });
