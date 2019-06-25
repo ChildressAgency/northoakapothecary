@@ -119,10 +119,15 @@
   margin-bottom:60px;
 }
 
+/*
 .woocommerce div.product div.images .woocommerce-product-gallery__wrapper{
   text-align:center;
 }
 .woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2){
   max-width:115px;
   margin:8px;
+}*/
+
+.woocommerce div.product div.images .flex-control-thumbs li{
+  margin:10px;
 }
