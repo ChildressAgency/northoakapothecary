@@ -6,17 +6,35 @@ remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pro
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
 add_action('woocommerce_after_shop_loop_item_title', 'northoak_template_loop_product_title', 4);
 function northoak_template_loop_product_title(){
-  global $product;
+  //global $product;
 
   echo '<div class="products__top"><div class="products__title-review">';
   echo '<p class="products__title">' . get_the_title() . '</p>';
   echo '<p class="products__rating">';
   wc_get_template('loop/rating.php');
   echo '</p></div>';
-  echo '<p class="products__price">' . $product->price . '</p></div>';
+  //echo '<p class="products__price">' . $product->price . '</p></div>';
+  echo '<p class="products__price">' . northoak_get_product_price() . '</p></div>';
   echo '<p class="products__description">' . esc_html(get_the_excerpt()) . '</p>';
+}
+
+function northoak_get_product_price(){
+  global $product;
+  $product_price = $product->price;
+
+  if(is_user_logged_in()){
+    $user_meta = get_userdata(get_current_user_id());
+    $user_roles = $user_meta->roles;
+
+    if(in_array('wholesale_customer', $user_roles)){
+      $product_price = get_post_meta($product->id, 'wholesale_customer_wholesale_price')[0];
+    }
+  }
+
+  return $product_price;
 }
 
 add_filter('woocommerce_get_price_html', 'northoak_format_price', 100, 2);
