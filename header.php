@@ -33,7 +33,7 @@
                 <a href="tel:<?php echo get_field( 'phone', 'option' ); ?>"><?php the_field( 'phone', 'option' ); ?></a> | <a href="mailto:<?php echo get_field( 'email', 'option' ); ?>"><?php the_field( 'email', 'option' ); ?></a>
             </div>
             <div class="masthead__newsletter">
-                <a href="#"><em>Join Our Newsletter</em></a>
+                <a href="#newsletter-signup-modal" data-toggle="modal"><em>Join Our Newsletter</em></a>
             </div>
             <div class="masthead__shop">
                 <?php if( is_user_logged_in() ): ?>
