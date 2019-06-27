@@ -8,9 +8,10 @@ $overlay = $overlay['value']
     <?php if( $overlay != 'none' ): ?><div class="overlay overlay--<?php echo $overlay; ?>"></div><?php endif; ?>
     <div class="container">
         <?php if( get_sub_field( 'section_heading' ) ): ?><h2 class="section__heading"><?php the_sub_field( 'section_heading' ); ?></h2><?php endif; ?>
-        <div class="products">
+        <div class="">
+          <?php echo do_shortcode('[featured_products per_page="3" columns="3"]'); ?>
             <?php
-
+/*
             $meta_query = WC()->query->get_meta_query();
             $tax_query = WC()->query->get_tax_query();
 
@@ -82,7 +83,7 @@ $overlay = $overlay['value']
             endif;
 
             wp_reset_query();
-
+*/
             ?>
 
         </div>
