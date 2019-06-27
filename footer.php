@@ -47,7 +47,24 @@
             </div>
         </div>
     </footer>
-    
+    <div id="newsletter-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content footer-box">
+          <div class="modal-header footer-box__heading">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h2 class="modal-title"><span class="script">Join</span> our newsletter</h2>
+          </div>
+          <div class="modal-body footer-box__text">
+            <p>Don't miss out on our latest news, products &amp; specials.</p>
+            <span class="subtext"><em>New signups will receive 10% off their next order...</em></span>
+            <p>&nbsp;</p>
+            <?php echo do_shortcode('[contact-form-7 id="63" title="Newsletter Signup"]'); ?>
+          </div>
+        </div>
+      </div>
+    </div>
     <?php wp_footer(); ?>
 </body>
 </html>
