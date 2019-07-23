@@ -128,6 +128,11 @@
   margin:8px;
 }*/
 
+.woocommerce div.product div.images .flex-control-thumbs{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
 .woocommerce div.product div.images .flex-control-thumbs li{
   margin:10px;
 }
