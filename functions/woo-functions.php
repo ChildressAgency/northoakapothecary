@@ -18,7 +18,7 @@ function northoak_template_loop_product_title(){
   echo '</p></div>';
   //echo '<p class="products__price">' . $product->price . '</p></div>';
   echo '<p class="products__price">' . northoak_get_product_price() . '</p></div>';
-  echo '<p class="products__description">' . esc_html(get_the_excerpt()) . '</p>';
+  echo '<p class="products__description">' . wp_kses_post(get_the_excerpt()) . '</p>';
 }
 
 function northoak_get_product_price(){
